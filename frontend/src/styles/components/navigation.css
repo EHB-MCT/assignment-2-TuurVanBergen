@@ -1,6 +1,6 @@
 .header {
-	background-color: #333;
-	color: white;
+	background-color: #bb0a0a;
+	color: #e1dddd;
 	padding: 1.5%;
 	display: flex;
 	justify-content: space-between;
@@ -18,7 +18,7 @@
 }
 
 .header__link {
-	color: white;
+	color: #e1dddd;
 	text-decoration: none;
 }
 

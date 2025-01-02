@@ -1,0 +1,33 @@
+/* Block */
+.footer {
+	background-color: #bb0a0a;
+	color: #e1dddd;
+	padding: 2rem 1rem;
+	text-align: center;
+}
+
+.footer__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Element */
+.footer__nav {
+	margin: 1rem 0;
+}
+
+.footer__nav-list {
+	list-style: none;
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+	margin: 0;
+}
+
+.footer__nav-link {
+	color: #e1dddd;
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.3s;
+}
