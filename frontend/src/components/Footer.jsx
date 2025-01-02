@@ -8,7 +8,7 @@ const Footer = () => {
 				<nav className="footer__nav">
 					<ul className="footer__nav-list">
 						<li className="footer__nav-item">
-							<a href="/home" className="footer__nav-link">
+							<a href="/" className="footer__nav-link">
 								Home
 							</a>
 						</li>
@@ -18,8 +18,8 @@ const Footer = () => {
 							</a>
 						</li>
 						<li className="footer__nav-item">
-							<a href="/visualisation" className="footer__nav-link">
-								Visualisation
+							<a href="/visualization" className="footer__nav-link">
+								Visualization
 							</a>
 						</li>
 					</ul>
