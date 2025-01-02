@@ -15,14 +15,35 @@ The following changes were part of the old project setup and are now archived:
 
 ---
 
-## Current Project: Data Collection and Visualization Tool
+## Current Project: VibeView - Data Visualization
 
 ### [0.1.0] - 2025-01-02
 
 ### Added
 
-- Initialized the project with a new purpose.
-- Created the backend structure: `config`, `src` (with `controllers`, `models`, `routes`), `tests`, and `utils`.
-- Created the frontend structure with React.
-- Defined the main directories and their purposes in `README.md`.
-- Updated `.gitignore` to reflect new files and folders.
+- **Project Initialization:**
+
+  - Created a new project with a clear goal: collecting, storing, and visualizing music data via forms.
+  - Defined backend structure: `config`, `src` (with `controllers`, `models`, `routes`), `tests`, and `utils`.
+
+- **Frontend Setup:**
+
+  - Initialized React frontend with `vite.config.js`.
+  - Created directory structure: `components`, `pages`, `styles`, `routes`, etc.
+  - Implemented routing with `AppRouter` to handle navigation between `HomePage`, `About`, `VisualizationsPage`, and `NotFoundPage`.
+  - Added global styling via `index.css`.
+  - Integrated `Navigation` and `Footer` components.
+
+- **Documentation:**
+  - Updated `README.md` with project structure and setup instructions.
+  - Archived the old changelog for reference.
+
+#### Changed
+
+- **.gitignore:**
+  - Updated to include new dependencies and environment-specific files for both backend and frontend.
+
+#### Removed
+
+- **Legacy Code:**
+  - Archived old Rijksmuseum-related files and changes to focus on the new project direction.

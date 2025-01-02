@@ -4,27 +4,47 @@
 
 **Project Name:** Personal Data Form with Backend Integration  
 **Date Initialized:** January 2, 2025  
-**Goal:** Build a web application that collects user data via a frontend form, stores it in a backend database, and visualizes it.  
+**Goal:** Build a web application to collect user data via a frontend form, store it in a backend database, and visualize it interactively.  
 **Technologies:** JavaScript, React, Node.js, Express.js, MongoDB, D3.js (for visualization).
 
-### Folder Structure
+---
 
-#### Frontend
+## Folder Structure
 
-- `src/`: React application source code (components, pages, styles, etc.).
-- `public/`: Static assets for the frontend.
-- `tests/`: Testing scripts for frontend functionality.
+### Frontend
 
-#### Backend
+- **`src/`:**  
+  Contains the React application source code. Includes directories for:
 
-- `config/`: Configuration files (e.g., database connection, environment variables).
-- `src/`: Backend application logic.
-  - `controllers/`: Handles HTTP requests and responses.
-  - `routes/`: API route definitions.
-  - `models/`: Database models and schemas.
-  - `services/`: Business logic and data operations.
-  - `utils/`: Reusable utility functions (e.g., validation, error handling).
-- `tests/`: Testing scripts for backend functionality.
+  - **`components/`:** Reusable UI components.
+  - **`pages/`:** Page-specific components (e.g., Home, About, Visualization).
+  - **`styles/`:** CSS/SCSS files for global and component-level styling.
+  - **`routes/`:** Manages application routing logic.
+
+- **`public/`:**  
+  Static assets for the frontend (e.g., images, favicon).
+
+- **`tests/`:**  
+  Testing scripts for validating frontend functionality.
+
+---
+
+### Backend
+
+- **`config/`:**  
+  Configuration files (e.g., environment variables, database connections).
+
+- **`src/`:**  
+  Backend application logic, structured into:
+
+  - **`controllers/`:** Handles HTTP requests and responses.
+  - **`routes/`:** API route definitions (e.g., `/api/data`).
+  - **`models/`:** Database schemas and models for MongoDB.
+  - **`services/`:** Encapsulates business logic and data handling.
+  - **`utils/`:** Reusable utility functions (e.g., validation, error handling).
+
+- **`tests/`:**  
+  Backend unit and integration tests.
 
 ---
 
@@ -34,24 +54,41 @@
 
 **Tasks Completed:**
 
-- Initialized a new project structure for both frontend and backend.
-- Set up the React frontend with `vite` for fast development.
-- Configured ESLint and Prettier for consistent code quality.
-- Created backend structure with `Express.js`:
+- **Project Initialization:**
+
+  - Defined separate folder structures for frontend and backend to ensure modularity.
+  - Initialized React frontend using `vite` for faster development.
+  - Configured ESLint and Prettier for code linting and formatting.
+  - Created backend structure and aligned it with best practices.
+
+- **Frontend Setup:**
+
+  - Implemented a basic layout for the React application with routing (`react-router-dom`).
+  - Created placeholders for `HomePage`, `AboutPage`, `VisualizationsPage` and `NotFoundPage`.
+
+- **Backend Setup:**
   - Defined folder hierarchy for `controllers`, `routes`, `models`, `services`, and `utils`.
 
 **Challenges:**
 
-- Clarified the separation of frontend and backend responsibilities.
-- Refined backend folder structure to align with best practices.
+- Ensuring the frontend and backend structures remain scalable and follow conventions.
+- Deciding on the tools for visualization.
 
 **Next Steps:**
 
-- Build the React form for data collection (frontend).
-- Create backend routes to handle form submissions and store data in MongoDB.
-- Implement data fetching and visualization using D3.js in the frontend.
+1. **Frontend Development:**
+
+   - Build the React form to collect data fields from users.
+   - Style the form using global and component-specific CSS.
+
+2. **Backend Development:**
+
+   - Implement routes to handle form submissions and validate incoming data.
+   - Connect to MongoDB and create a schema for storing user-submitted data.
+
+3. **Data Visualization:**
+   - Begin exploring D3.js to create interactive and dynamic visualizations.
 
 ### Notes
 
-- The new architecture follows modern conventions for full-stack JavaScript applications.
-- Regular updates will be made to the [Changelog](CHANGELOG.md) to reflect changes.
+- Changes and progress are documented in the [Changelog](CHANGELOG.md).

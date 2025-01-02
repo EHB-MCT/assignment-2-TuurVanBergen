@@ -1,6 +1,6 @@
 # Data Collection and Visualization Tool
 
-A full-stack project designed to collect, store, and visualize user data interactively. This tool utilizes a React frontend, a Node.js backend, and a database for storage.
+A full-stack project designed to collect, store, and visualize user data interactively. The project is modular and extensible, allowing future integration with external APIs such as the Spotify API.
 
 ## Features
 
@@ -16,7 +16,7 @@ A full-stack project designed to collect, store, and visualize user data interac
 
 - [Node.js](https://nodejs.org/) (v16 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
-- A database (MongoDB)
+- [MongoDB](https://www.mongodb.com/) (local or cloud instance, e.g., MongoDB Atlas)
 
 ### Steps
 
@@ -95,5 +95,7 @@ This project includes the following additional documentation:
 
 - The original project, focused on Rijksmuseum Data Visualization, has been archived. This project reflects a new direction and purpose.
 - For archived content and structure, refer to previous commits.
+- Future integrations, such as the Spotify API for enhanced user interaction, are planned.
+- Regular updates will be made to the [Changelog](CHANGELOG.md).
 
 ---
