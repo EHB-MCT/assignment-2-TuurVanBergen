@@ -1,3 +1,27 @@
+/**
+ * Footer Component
+ *
+ * This component renders the footer section of the application,
+ * including navigation links to key pages: Home, About, and Visualization.
+ *
+ * @returns {JSX.Element} The rendered Footer component.
+ */
+
+import "../styles/components/footer.css";
+
+/**
+ * Footer Functional Component
+ *
+ * The footer contains:
+ * - A title "VibeView"
+ * - A navigation menu with links to the Home, About, and Visualization pages.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Footer />
+ * )
+ */
 import "../styles/components/footer.css";
 
 const Footer = () => {

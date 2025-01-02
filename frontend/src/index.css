@@ -1,3 +1,6 @@
+/* Global styles */
+
+/* Apply a consistent font family and reset default margins and paddings */
 body {
 	font-family: Arial, sans-serif;
 	margin: 0;
@@ -5,13 +8,14 @@ body {
 	background-color: #e1dddd;
 }
 
+/* Header and footer styling */
 header,
 footer {
-	background-color: #333;
 	color: #e1dddd;
 	padding: 1rem;
 }
 
+/* Link styling */
 a {
 	color: #e1dddd;
 	text-decoration: none;

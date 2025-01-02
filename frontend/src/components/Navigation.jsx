@@ -1,3 +1,27 @@
+/**
+ * Navigation Component
+ *
+ * This component renders the navigation bar at the top of the application.
+ * It includes links to the Home, About, and Visualizations pages.
+ *
+ * @returns {JSX.Element} The rendered Navigation component.
+ */
+
+import "../styles/components/navigation.css";
+
+/**
+ * Navigation Functional Component
+ *
+ * The navigation contains:
+ * - A title "VibeView".
+ * - A set of navigation links styled using BEM methodology.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Navigation />
+ * )
+ */
 import "../styles/components/navigation.css";
 
 const Navigation = () => {
