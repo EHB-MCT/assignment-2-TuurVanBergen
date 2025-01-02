@@ -2,45 +2,56 @@
 
 ## Project Initialization
 
-**Project Name:** Rijksmuseum Data Visualization  
-**Date Initialized:** December 26, 2024  
-**Goal:** Visualizing data from the Rijksmuseum API using p5.js.  
-**Technologies:** JavaScript, p5.js, Node.js, Rijksmuseum API.
+**Project Name:** Personal Data Form with Backend Integration  
+**Date Initialized:** January 2, 2025  
+**Goal:** Build a web application that collects user data via a frontend form, stores it in a backend database, and visualizes it.  
+**Technologies:** JavaScript, React, Node.js, Express.js, MongoDB, D3.js (for visualization).
 
 ### Folder Structure
 
-- `src/`: Core code (API handling, visualizations).
-- `docs/`: Documentation (README, CONTRIBUTING, etc.).
-- `assets/`: Non-code assets (images, fonts, icons).
-- `tests/`: Testing scripts.
-- `node_modules/`: Installed dependencies.
+#### Frontend
 
-This structure was chosen for scalability and clarity.
+- `src/`: React application source code (components, pages, styles, etc.).
+- `public/`: Static assets for the frontend.
+- `tests/`: Testing scripts for frontend functionality.
+
+#### Backend
+
+- `config/`: Configuration files (e.g., database connection, environment variables).
+- `src/`: Backend application logic.
+  - `controllers/`: Handles HTTP requests and responses.
+  - `routes/`: API route definitions.
+  - `models/`: Database models and schemas.
+  - `services/`: Business logic and data operations.
+  - `utils/`: Reusable utility functions (e.g., validation, error handling).
+- `tests/`: Testing scripts for backend functionality.
 
 ---
 
 ## Progress Updates
 
-### December 27, 2024
+### January 2, 2025
 
 **Tasks Completed:**
 
-- Implemented API configuration in `src/api/config.js`.
-- Added `fetchRijksmuseumData.js` to handle data fetching from the Rijksmuseum API.
-- Developed the `initializeRijksmuseumData` function for data initialization with dynamic filtering capabilities.
+- Initialized a new project structure for both frontend and backend.
+- Set up the React frontend with `vite` for fast development.
+- Configured ESLint and Prettier for consistent code quality.
+- Created backend structure with `Express.js`:
+  - Defined folder hierarchy for `controllers`, `routes`, `models`, `services`, and `utils`.
 
 **Challenges:**
 
-- Encountered issues with incorrect default parameters being passed to the API; resolved by updating `fetchRijksmuseumCollectionData` logic.
-- Ensured secure storage of the API key using environment variables.
+- Clarified the separation of frontend and backend responsibilities.
+- Refined backend folder structure to align with best practices.
 
 **Next Steps:**
 
-- Process the fetched data.
-- Build initial visualizations in p5.js.
-- Write tests for API integration.
+- Build the React form for data collection (frontend).
+- Create backend routes to handle form submissions and store data in MongoDB.
+- Implement data fetching and visualization using D3.js in the frontend.
 
 ### Notes
 
-- All changes are logged in the [Changelog](CHANGELOG.md).
-- For detailed explanations of API interactions, refer to the [API Documentation](API_DOCUMENTATION.md).
+- The new architecture follows modern conventions for full-stack JavaScript applications.
+- Regular updates will be made to the [Changelog](CHANGELOG.md) to reflect changes.

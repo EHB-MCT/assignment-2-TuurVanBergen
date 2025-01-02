@@ -1,28 +1,99 @@
-# Rijksmuseum Data Visualization
+# Data Collection and Visualization Tool
 
-A project dedicated to visualizing data from the Rijksmuseum collection. The aim is to create insightful and interactive visualizations that highlight patterns and stories within the data.
+A full-stack project designed to collect, store, and visualize user data interactively. This tool utilizes a React frontend, a Node.js backend, and a database for storage.
+
+## Features
+
+- **Frontend:** Collect user input via a responsive React-based form.
+- **Backend:** Store user data securely in a database using a Node.js and Express API.
+- **Visualization:** Fetch and visualize stored data in real time.
+
+---
 
 ## Installation
 
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- A database (MongoDB)
+
+### Steps
+
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/EHB-MCT/assignment-2-TuurVanBergen.git
    ```
 
+2. Navigate to the project directory:
+
+   ```bash
+   cd assignment-2-TuurVanBergen
+   ```
+
+3. Install dependencies for both frontend and backend:
+
+   ```bash
+   # Frontend
+   cd frontend
+   npm install
+
+   # Backend
+   cd ../backend
+   npm install
+   ```
+
+4. Configure environment variables:
+
+   - Create a `.env` file in the `backend` folder with your database and other configurations.
+
+5. Start the development servers:
+
+   ```bash
+   # Frontend
+   cd frontend
+   npm run dev
+
+   # Backend
+   cd ../backend
+   npm run dev
+   ```
+
+---
+
 ## Documentation
 
-This project includes the following additional documentation files:
+This project includes the following additional documentation:
 
-- [API Documentation](API_DOCUMENTATION.md): Details about the API usage.
-- [Changelog](CHANGELOG.md): A log of changes made throughout the project.
-- [Code of Conduct](CODE_OF_CONDUCT.md): Guidelines for participation in the project.
-- [Contributing Guide](CONTRIBUTING.md): Instructions for contributing to the project.
-- [Dataflow](DATAFLOW.md): An explanation of the data flow in the project.
-- [Naming Conventions](NAMING_CONVENTIONS.md): Standards for naming conventions.
+- [API Documentation](API_DOCUMENTATION.md): Details about the backend API endpoints.
+- [Changelog](CHANGELOG.md): Log of changes made throughout the project.
+- [Progress](PROGRESS.md): Updates about project progress.
+- [Dataflow](DATAFLOW.md): Explanation of how data flows between frontend, backend, and database.
 - [Processes](PROCESSES.md): Detailed descriptions of the project processes.
-- [Progress](PROGRESS.md): Ongoing updates about project progress.
+- [Naming Conventions](NAMING_CONVENTIONS.md): Standards for naming conventions.
 - [License](LICENSE): Information about the project license.
+
+---
+
+## Technologies Used
+
+- **Frontend:** React, Vite
+- **Backend:** Node.js, Express.js
+- **Database:** [MongoDB]
+- **Visualization:** D3.js
+
+---
 
 ## Author
 
 - **Tuur Van Bergen**
+
+---
+
+## Notes
+
+- The original project, focused on Rijksmuseum Data Visualization, has been archived. This project reflects a new direction and purpose.
+- For archived content and structure, refer to previous commits.
+
+---
