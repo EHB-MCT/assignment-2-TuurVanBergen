@@ -1,7 +1,31 @@
-import { useState } from "react";
 import "../styles/components/musicForm.css";
+import { useMusicForm } from "../hooks/useMusicForm";
+import { formFieldsConfig } from "../utils/formFieldsConfig";
+import FormField from "./FormField";
 
+/**
+ * MusicForm Component
+ *
+ * A form component for manually inputting details about a music track.
+ * This component dynamically renders input fields based on a configuration object
+ * and manages its state using a custom hook.
+ *
+ * @component
+ */
 const MusicForm = () => {
+	/**
+	 * Initial state of the form.
+	 * Represents the default values for all form fields.
+	 *
+	 * @constant {Object} initialFormState
+	 * @property {string} trackTitle - The title of the track.
+	 * @property {string} artistName - The name of the artist.
+	 * @property {string} albumName - The name of the album.
+	 * @property {string} releaseYear - The release year of the track.
+	 * @property {string} genre - The genre of the track.
+	 * @property {string} duration - The duration of the track in seconds.
+	 * @property {string} rating - User rating for the track (1-5).
+	 */
 	const initialFormState = {
 		trackTitle: "",
 		artistName: "",
@@ -12,108 +36,39 @@ const MusicForm = () => {
 		rating: "",
 	};
 
-	const [formData, setFormData] = useState(initialFormState);
-
-	const handleInputChange = (event) => {
-		const { name, value } = event.target;
-		setFormData((prevData) => ({
-			...prevData,
-			[name]: value,
-		}));
-	};
-
-	const handleFormSubmit = (event) => {
-		event.preventDefault();
-		console.log("Form submitted successfully:", formData);
-
-		setFormData(initialFormState);
-	};
-
-	const formFields = [
-		{
-			labelText: "Track Title",
-			inputId: "track-title",
-			fieldName: "trackTitle",
-			inputType: "text",
-			inputPlaceholder: "Enter track title",
-		},
-		{
-			labelText: "Artist",
-			inputId: "artist-name",
-			fieldName: "artistName",
-			inputType: "text",
-			inputPlaceholder: "Enter artist name",
-		},
-		{
-			labelText: "Album",
-			inputId: "album-name",
-			fieldName: "albumName",
-			inputType: "text",
-			inputPlaceholder: "Enter album name",
-		},
-		{
-			labelText: "Release Year",
-			inputId: "release-year",
-			fieldName: "releaseYear",
-			inputType: "text",
-			inputPlaceholder: "Enter release year",
-		},
-		{
-			labelText: "Genre",
-			inputId: "genre",
-			fieldName: "genre",
-			inputType: "text",
-			inputPlaceholder: "Enter genre",
-		},
-		{
-			labelText: "Duration (in seconds)",
-			inputId: "duration",
-			fieldName: "duration",
-			inputType: "number",
-			inputPlaceholder: "Enter duration",
-		},
-		{
-			labelText: "Rating (1-5)",
-			inputId: "rating",
-			fieldName: "rating",
-			inputType: "number",
-			inputPlaceholder: "Rate the track",
-			min: "1",
-			max: "5",
-		},
-	];
+	/**
+	 * Destructures values and functions from the `useMusicForm` custom hook.
+	 *
+	 * @constant {Object} useMusicForm
+	 * @property {Object} formData - Current state of the form fields.
+	 * @property {Object} errors - Validation errors for the form fields.
+	 * @property {Function} handleInputChange - Updates the formData when input changes.
+	 * @property {Function} handleFormSubmit - Validates and submits the form.
+	 * @property {Function} resetForm - Resets the form to its initial state.
+	 */
+	const { formData, errors, handleInputChange, handleFormSubmit, resetForm } =
+		useMusicForm(initialFormState);
 
 	return (
-		<form className="music-form" onSubmit={handleFormSubmit} noValidate>
+		<form
+			className="music-form"
+			onSubmit={(event) => handleFormSubmit(event, resetForm)}
+			noValidate
+		>
 			<h2 className="music-form__title">Add New Track</h2>
 
-			{formFields.map(
-				({
-					labelText,
-					inputId,
-					fieldName,
-					inputType,
-					inputPlaceholder,
-					...additionalProps
-				}) => (
-					<div className="music-form__group" key={inputId}>
-						<label className="music-form__label" htmlFor={inputId}>
-							{labelText}:
-						</label>
-						<input
-							className="music-form__input"
-							id={inputId}
-							name={fieldName}
-							type={inputType}
-							placeholder={inputPlaceholder}
-							value={formData[fieldName]}
-							onChange={handleInputChange}
-							{...additionalProps}
-						/>
-					</div>
-				)
-			)}
+			{/* Dynamically render form fields based on the configuration */}
+			{formFieldsConfig.map((fieldConfig) => (
+				<FormField
+					key={fieldConfig.inputId}
+					fieldConfig={fieldConfig}
+					value={formData[fieldConfig.fieldName]}
+					error={errors[fieldConfig.fieldName]}
+					onChange={handleInputChange}
+				/>
+			))}
 
+			{/* Submit button */}
 			<button type="submit" className="music-form__submit">
 				Add Track
 			</button>

@@ -1,0 +1,51 @@
+/* .form-field: The main container for each form field. */
+.form-field {
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+}
+
+/* .form-field__label: The label associated with each input field. */
+.form-field__label {
+	font-size: 1rem;
+	color: #333;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+/* .form-field__input: The input element styling. */
+.form-field__input {
+	padding: 0.75rem;
+	font-size: 1rem;
+	color: #333;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+	transition: border-color 0.3s, box-shadow 0.3s;
+	background-color: #fff;
+}
+
+/* .form-field__input:focus: Styling for the input field when it is focused. */
+.form-field__input:focus {
+	border-color: #bb0a0a;
+	box-shadow: 0 0 4px rgba(187, 10, 10, 0.4);
+	outline: none;
+}
+
+/* .form-field__input--error: Styling for inputs with validation errors. */
+.form-field__input--error {
+	border-color: #bb0a0a;
+	background-color: #ffe6e6;
+}
+
+/* .form-field__input--error:focus: Styling for error inputs when focused. */
+.form-field__input--error:focus {
+	box-shadow: 0 0 4px rgba(187, 10, 10, 0.6);
+}
+
+/* .form-field__error: The error message displayed for invalid inputs. */
+.form-field__error {
+	font-size: 0.875rem;
+	color: #bb0a0a;
+	margin-top: 0.25rem;
+}

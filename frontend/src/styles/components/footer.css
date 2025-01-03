@@ -1,10 +1,4 @@
-/* Footer Component Styles */
-/* 
-This file defines the styles for the Footer component.
-It uses the BEM (Block Element Modifier) convention for class naming.
-*/
-
-/* Block: Footer container */
+/* .footer: The main container for the footer section. */
 .footer {
 	background-color: #bb0a0a;
 	color: #e1dddd;
@@ -12,18 +6,19 @@ It uses the BEM (Block Element Modifier) convention for class naming.
 	text-align: center;
 }
 
-/* Block Element: Footer content container */
+/* .footer__container: A flex container for organizing footer content. */
 .footer__container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-/* Element: Footer navigation styles */
+/* .footer__nav: The navigation container inside the footer. */
 .footer__nav {
 	margin: 1rem 0;
 }
 
+/* .footer__nav-list: The list container for navigation links. */
 .footer__nav-list {
 	list-style: none;
 	display: flex;
@@ -32,7 +27,7 @@ It uses the BEM (Block Element Modifier) convention for class naming.
 	margin: 0;
 }
 
-/* Element: Footer navigation links */
+/* .footer__nav-link: Individual navigation links in the footer. */
 .footer__nav-link {
 	color: #e1dddd;
 	text-decoration: none;
