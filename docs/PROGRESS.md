@@ -107,6 +107,64 @@
 3. **Data Visualization:**
    - Begin exploring D3.js to create interactive and dynamic visualizations.
 
-### Notes
+Hier is de progress log update in het juiste formaat:
 
-- Changes and progress are documented in the [Changelog](CHANGELOG.md).
+---
+
+### January 3, 2025
+
+**Tasks Completed:**
+
+- **Backend Basic Configuration:**
+
+  - Set up the main server file (`index.js`):
+    - Configured the Express server.
+    - Configured server port using the `.env` file.
+    - Integrated routing logic via `apiRoutes.js`.
+
+- **Database Connection:**
+
+  - Created `db.js` under the `config/` directory to handle MongoDB connection:
+    - Used the `dotenv` package to manage the database URI securely.
+    - Implemented logic to handle connection success and error cases.
+    - Ensured the server starts only after a successful database connection.
+
+- **Routing Structure:**
+
+  - Added `apiRoutes.js` in the `routes/` folder:
+    - Configured a placeholder `/` route.
+
+---
+
+**Challenges:**
+
+- Debugging MongoDB connection errors caused by incorrect environment variable setup.
+- Designing a scalable and modular routing structure for future API expansion.
+
+---
+
+**Next Steps:**
+
+1. **Backend API Development:**
+
+   - Create a `/music` endpoint to handle incoming data submissions.
+   - Define a `musicModel.js` schema in the `models/` folder for database operations.
+
+2. **Frontend Integration:**
+
+   - Implement HTTP requests from the frontend to the `/music` endpoint for data submission.
+
+3. **Testing:**
+
+   - Test MongoDB insertion with sample data and verify retrieval via API routes.
+
+4. **Error Handling:**
+   - Add centralized error handling for both API and database-related issues.
+
+---
+
+**Notes:**
+
+- **Database Name:** `vibeview`.
+- **Environment Variables:** Server port and database URI are securely stored in the `.env` file.
+- **Documentation:** Updates will be made to the [Dataflow](DATAFLOW.md) and [Changelog](CHANGELOG.md) as features are added.

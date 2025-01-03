@@ -73,7 +73,26 @@ The following changes were part of the old project setup and are now archived:
   - Applied BEM methodology to all form-related CSS classes.
   - Added detailed comments to `musicForm.css` and `formField.css`.
 
+- **Backend Enhancements:**
+
+  - Separated API route handling into `src/routes/apiRoutes.js`.
+  - Added `/status` endpoint to check server health.
+  - Integrated MongoDB connection.
+  - Created a modular `apiRoutes.js` file for scalable routing.
+
 - **Documentation Updates:**
 
   - Added JSDoc comments to all core components, hooks, and utility functions.
   - Improved inline comments for clarity in both JavaScript and CSS files.
+
+#### Changed
+
+- **Refactored Project Structure:**
+
+  - Separated API route handling into `src/routes/apiRoutes.js`.
+  - Moved backend logic for database connection into `config/db.js`.
+
+### Notes:
+
+- For detailed setup instructions, refer to the `README.md`.
+- This changelog adheres to the Semantic Versioning conventions for consistent version management.

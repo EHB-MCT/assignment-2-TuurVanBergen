@@ -1,4 +1,4 @@
-# Data Collection and Visualization Tool
+# VibeView a Data Collection and Visualization Tool
 
 A full-stack project designed to collect, store, and visualize user data interactively. The project is modular and extensible, allowing future integration with external APIs such as the Spotify API.
 
@@ -44,9 +44,13 @@ A full-stack project designed to collect, store, and visualize user data interac
    npm install
    ```
 
-4. Configure environment variables:
+4. Configure environment variables\*\*:
 
-   - Create a `.env` file in the `backend` folder with your database and other configurations.
+   - Create a `.env` file in the `backend` folder with the following configuration:
+     ```env
+     MONGO_URI=<your-mongodb-connection-string>
+     PORT=3000
+     ```
 
 5. Start the development servers:
 
@@ -59,6 +63,10 @@ A full-stack project designed to collect, store, and visualize user data interac
    cd ../backend
    npm run dev
    ```
+
+6. **Access the application**:
+   - Frontend: Visit `http://localhost:5173` (default Vite port).
+   - Backend API: Visit `http://localhost:3000/`.
 
 ---
 
