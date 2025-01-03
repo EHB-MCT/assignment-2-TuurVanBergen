@@ -1,104 +1,118 @@
+import { useState } from "react";
 import "../styles/components/musicForm.css";
 
 const MusicForm = () => {
+	const initialFormState = {
+		trackTitle: "",
+		artistName: "",
+		albumName: "",
+		releaseYear: "",
+		genre: "",
+		duration: "",
+		rating: "",
+	};
+
+	const [formData, setFormData] = useState(initialFormState);
+
+	const handleInputChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
+	};
+
+	const handleFormSubmit = (event) => {
+		event.preventDefault();
+		console.log("Form submitted successfully:", formData);
+
+		setFormData(initialFormState);
+	};
+
+	const formFields = [
+		{
+			labelText: "Track Title",
+			inputId: "track-title",
+			fieldName: "trackTitle",
+			inputType: "text",
+			inputPlaceholder: "Enter track title",
+		},
+		{
+			labelText: "Artist",
+			inputId: "artist-name",
+			fieldName: "artistName",
+			inputType: "text",
+			inputPlaceholder: "Enter artist name",
+		},
+		{
+			labelText: "Album",
+			inputId: "album-name",
+			fieldName: "albumName",
+			inputType: "text",
+			inputPlaceholder: "Enter album name",
+		},
+		{
+			labelText: "Release Year",
+			inputId: "release-year",
+			fieldName: "releaseYear",
+			inputType: "text",
+			inputPlaceholder: "Enter release year",
+		},
+		{
+			labelText: "Genre",
+			inputId: "genre",
+			fieldName: "genre",
+			inputType: "text",
+			inputPlaceholder: "Enter genre",
+		},
+		{
+			labelText: "Duration (in seconds)",
+			inputId: "duration",
+			fieldName: "duration",
+			inputType: "number",
+			inputPlaceholder: "Enter duration",
+		},
+		{
+			labelText: "Rating (1-5)",
+			inputId: "rating",
+			fieldName: "rating",
+			inputType: "number",
+			inputPlaceholder: "Rate the track",
+			min: "1",
+			max: "5",
+		},
+	];
+
 	return (
-		<form className="music-form">
+		<form className="music-form" onSubmit={handleFormSubmit} noValidate>
 			<h2 className="music-form__title">Add New Track</h2>
 
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="track-title">
-					Track Title:
-				</label>
-				<input
-					type="text"
-					id="track-title"
-					name="trackTitle"
-					className="music-form__input"
-					placeholder="Enter track title"
-				/>
-			</div>
-
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="artist-name">
-					Artist:
-				</label>
-				<input
-					type="text"
-					id="artist-name"
-					name="artistName"
-					className="music-form__input"
-					placeholder="Enter artist name"
-				/>
-			</div>
-
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="album-name">
-					Album:
-				</label>
-				<input
-					type="text"
-					id="album-name"
-					name="albumName"
-					className="music-form__input"
-					placeholder="Enter album name"
-				/>
-			</div>
-
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="release-year">
-					Release Year:
-				</label>
-				<input
-					type="text"
-					id="release-year"
-					name="releaseYear"
-					className="music-form__input"
-					placeholder="Enter release year"
-					pattern="\d{4}"
-					title="Enter a valid year (e.g., 2025)"
-				/>
-			</div>
-
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="genre">
-					Genre:
-				</label>
-				<input
-					type="text"
-					id="genre"
-					name="genre"
-					className="music-form__input"
-					placeholder="Enter genre"
-				/>
-			</div>
-
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="duration">
-					Duration (in seconds):
-				</label>
-				<input
-					type="number"
-					id="duration"
-					name="duration"
-					className="music-form__input"
-					placeholder="Enter duration"
-				/>
-			</div>
-
-			<div className="music-form__group">
-				<label className="music-form__label" htmlFor="rating">
-					Rating (1-5):
-				</label>
-				<input
-					type="number"
-					id="rating"
-					name="rating"
-					className="music-form__input"
-					min="1"
-					max="5"
-					placeholder="Rate the track"
-				/>
-			</div>
+			{formFields.map(
+				({
+					labelText,
+					inputId,
+					fieldName,
+					inputType,
+					inputPlaceholder,
+					...additionalProps
+				}) => (
+					<div className="music-form__group" key={inputId}>
+						<label className="music-form__label" htmlFor={inputId}>
+							{labelText}:
+						</label>
+						<input
+							className="music-form__input"
+							id={inputId}
+							name={fieldName}
+							type={inputType}
+							placeholder={inputPlaceholder}
+							value={formData[fieldName]}
+							onChange={handleInputChange}
+							{...additionalProps}
+						/>
+					</div>
+				)
+			)}
 
 			<button type="submit" className="music-form__submit">
 				Add Track
