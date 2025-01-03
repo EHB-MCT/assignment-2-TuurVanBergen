@@ -91,4 +91,27 @@ router.put("/:id", async (req, res) => {
 	}
 });
 
+/**
+ * Delete a track by its ID.
+ * @route DELETE /api/tracks/:id
+ * @param {string} id - The ID of the track to delete.
+ * @returns {Object} JSON response with the deleted track or an error message.
+ */
+router.delete("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const deletedTrack = await Track.findByIdAndDelete(id);
+		if (!deletedTrack) {
+			return res.status(404).json({ message: "Track not found" });
+		}
+		res
+			.status(200)
+			.json({ message: "Track deleted successfully", track: deletedTrack });
+	} catch (error) {
+		res
+			.status(400)
+			.json({ message: "Failed to delete track", error: error.message });
+	}
+});
+
 export default router;
