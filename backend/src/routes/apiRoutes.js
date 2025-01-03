@@ -1,5 +1,5 @@
 import express from "express";
-
+import tracksRoutes from "./api/tracks.js";
 const router = express.Router();
 
 /**
@@ -13,5 +13,7 @@ const router = express.Router();
 router.get("/status", (req, res) => {
 	res.status(200).json({ message: "Server is running!" });
 });
+
+router.use("/tracks", tracksRoutes);
 
 export default router;
