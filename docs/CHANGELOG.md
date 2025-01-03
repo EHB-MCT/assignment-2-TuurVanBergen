@@ -34,6 +34,15 @@ The following changes were part of the old project setup and are now archived:
   - Added global styling via `index.css`.
   - Integrated `Navigation` and `Footer` components.
 
+- **Form Implementation:**
+
+  - Added a `MusicForm` component to manually input music track details.
+  - Utilized a `FormField` component to dynamically generate form fields based on configuration.
+  - Integrated a custom hook `useMusicForm` to manage form state, validation, and submission.
+  - Created `formFieldsConfig` for centralized form field configuration.
+  - Implemented basic form validation via `validateMusicForm` utility.
+  - Added dynamic error handling and styling for invalid fields.
+
 - **Documentation:**
   - Updated `README.md` with project structure and setup instructions.
   - Archived the old changelog for reference.
@@ -47,3 +56,24 @@ The following changes were part of the old project setup and are now archived:
 
 - **Legacy Code:**
   - Archived old Rijksmuseum-related files and changes to focus on the new project direction.
+
+### [0.2.0] - 2025-01-03
+
+### Added
+
+- **Form Enhancements:**
+
+  - Improved `MusicForm` to dynamically handle field configuration using a `formFieldsConfig` array.
+  - Enhanced form field styling in `formField.css` for better user experience.
+  - Added inline error messages for invalid fields with accessible styles.
+  - Updated `useMusicForm` to include a reset function for clearing form data post-submission.
+
+- **CSS Updates:**
+
+  - Applied BEM methodology to all form-related CSS classes.
+  - Added detailed comments to `musicForm.css` and `formField.css`.
+
+- **Documentation Updates:**
+
+  - Added JSDoc comments to all core components, hooks, and utility functions.
+  - Improved inline comments for clarity in both JavaScript and CSS files.
