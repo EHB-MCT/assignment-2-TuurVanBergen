@@ -1,0 +1,9 @@
+.homepage {
+	padding: 2rem;
+	text-align: center;
+}
+
+.homepage__title {
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+}

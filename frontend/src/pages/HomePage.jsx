@@ -1,4 +1,10 @@
 import "../styles/pages/homePage.css";
+import MusicForm from "../components/MusicForm.jsx";
+
 export default function HomePage() {
-	return <h2>Welcome to the home page</h2>;
+	return (
+		<main className="homepage">
+			<MusicForm />
+		</main>
+	);
 }
