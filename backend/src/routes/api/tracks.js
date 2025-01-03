@@ -4,8 +4,9 @@ import Track from "../../models/track.js";
 const router = express.Router();
 
 /**
- * GET /api/tracks
- * Fetches all tracks from the database.
+ * Fetch all tracks from the database.
+ * @route GET /api/tracks
+ * @returns {Object} JSON response with all tracks or an error message.
  */
 router.get("/", async (req, res) => {
 	try {
@@ -18,8 +19,10 @@ router.get("/", async (req, res) => {
 	}
 });
 /**
- * GET /api/tracks/:id
- * Fetches a single track by its ID.
+ * Fetch a single track by its ID.
+ * @route GET /api/tracks/:id
+ * @param {string} id - The ID of the track to fetch.
+ * @returns {Object} JSON response with the track details or an error message.
  */
 router.get("/:id", async (req, res) => {
 	try {
@@ -39,8 +42,10 @@ router.get("/:id", async (req, res) => {
 });
 
 /**
- * POST /api/tracks
- * Creates a new track and saves it to the database.
+ * Create a new track and save it to the database.
+ * @route POST /api/tracks
+ * @body {Object} req.body - The details of the new track to create.
+ * @returns {Object} JSON response with the created track or an error message.
  */
 router.post("/", async (req, res) => {
 	try {
@@ -53,6 +58,36 @@ router.post("/", async (req, res) => {
 		res
 			.status(400)
 			.json({ message: "Failed to create track", error: error.message });
+	}
+});
+
+/**
+ * Update a track by its ID.
+ * @route PUT /api/tracks/:id
+ * @param {string} id - The ID of the track to update.
+ * @body {Object} req.body - The details to update the track with.
+ * @returns {Object} JSON response with the updated track or an error message.
+ */
+router.put("/:id", async (req, res) => {
+	try {
+		const { id } = req.params;
+		const updatedTrack = await Track.findByIdAndUpdate(id, req.body, {
+			new: true, // Return the updated document
+			runValidators: true, // Run schema validators
+		});
+
+		if (!updatedTrack) {
+			return res.status(404).json({ message: "Track not found" });
+		}
+
+		res.status(200).json({
+			message: "Track updated successfully",
+			track: updatedTrack,
+		});
+	} catch (error) {
+		res
+			.status(400)
+			.json({ message: "Failed to update track", error: error.message });
 	}
 });
 
