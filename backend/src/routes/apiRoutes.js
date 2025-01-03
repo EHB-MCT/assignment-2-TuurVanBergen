@@ -1,19 +1,24 @@
 import express from "express";
-import tracksRoutes from "./api/tracks.js";
+import trackRoutes from "./api/trackRoutes.js";
+
 const router = express.Router();
 
 /**
- * @route GET /status
- * @group Status - Operations related to the server status
- * @returns {Object} 200 - An object indicating the server is running
- * @returns {Error}  default - Unexpected error
+ * Main API Router.
  *
- * @description This route checks the status of the server and returns a JSON response indicating that the server is running.
+ * This router serves as the entry point for all API-related routes in the application.
+ * It manages and organizes the specific route files.
+ *
+ * @module apiRoutes
  */
-router.get("/status", (req, res) => {
-	res.status(200).json({ message: "Server is running!" });
-});
 
-router.use("/tracks", tracksRoutes);
+/**
+ * Route group for managing tracks.
+ * All endpoints related to tracks are nested under `/api/tracks`.
+ *
+ * @name /api/tracks
+ * @kind Router
+ */
+router.use("/tracks", trackRoutes);
 
 export default router;
