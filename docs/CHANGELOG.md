@@ -80,9 +80,32 @@ The following changes were part of the old project setup and are now archived:
   - Integrated MongoDB connection.
   - Created a modular `apiRoutes.js` file for scalable routing.
 
+- **Backend Models:**
+
+  - Documenteer het aanmaken van de `Track`-model in de changelog:
+    - Validering van velden zoals `title`, `artist`, `year`, `duration`, en `rating`.
+
+- **API Endpoints:**
+
+  - Voeg de volgende routes toe aan de changelog:
+    - `GET /api/tracks` - Fetch all tracks.
+    - `GET /api/tracks/:id` - Fetch a single track by ID.
+    - `POST /api/tracks` - Create a new track.
+    - `PUT /api/tracks/:id` - Update an existing track.
+    - `DELETE /api/tracks/:id` - Delete a track.
+
+**Controller Refactor:**
+
+- Moved route logic to the `TrackController` to adhere to the SOLID principles.
+
+**Route Organization:**
+
+- Split API routes into `src/routes/api/trackRoutes.js` and `src/routes/apiRoutes.js` for better organization and scalability.
+
 - **Documentation Updates:**
 
   - Added JSDoc comments to all core components, hooks, and utility functions.
+  - Included JSDoc comments and updated the API documentation to reflect the latest changes.
   - Improved inline comments for clarity in both JavaScript and CSS files.
 
 #### Changed

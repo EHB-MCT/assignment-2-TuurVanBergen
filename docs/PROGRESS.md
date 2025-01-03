@@ -168,3 +168,64 @@ Hier is de progress log update in het juiste formaat:
 - **Database Name:** `vibeview`.
 - **Environment Variables:** Server port and database URI are securely stored in the `.env` file.
 - **Documentation:** Updates will be made to the [Dataflow](DATAFLOW.md) and [Changelog](CHANGELOG.md) as features are added.
+
+### **January 3, 2025**
+
+**Tasks Completed:**
+
+#### **Backend Models and Routing**
+
+- **Track Model Implementation:**
+
+  - Defined the `TrackSchema` in `models/track.js`:
+    - Included fields for `title`, `artist`, `album`, `year`, `genre`, `duration`, and `rating`.
+    - Added validation logic (e.g., `year` must be between 1500 and the current year, `rating` must be between 1-5).
+    - Used `timestamps` to automatically track creation and update times.
+
+- **Routing Setup:**
+
+  - Created `routes/api/trackRoutes.js`:
+    - **GET `/api/tracks`**: Fetch all tracks.
+    - **GET `/api/tracks/:id`**: Fetch a single track by ID.
+    - **POST `/api/tracks`**: Create a new track and save it to the database.
+    - **PUT `/api/tracks/:id`**: Update a track by ID.
+    - **DELETE `/api/tracks/:id`**: Delete a track by ID.
+  - Integrated `trackRoutes` into `routes/apiRoutes.js`.
+
+- **Controller Refactor:**
+  - Created `controllers/trackController.js`:
+    - Moved logic for fetching, creating, updating, and deleting tracks from `trackRoutes` to `trackController`.
+    - Ensured that routes only handle request/response delegation, adhering to the **Single Responsibility Principle**.
+
+---
+
+#### **Challenges**
+
+- **Validation Redundancy:**
+  - Addressed duplication between frontend and backend validation by focusing server-side validation on database integrity.
+- **Testing:**
+  - Tested routes using Postman to verify successful data insertion, retrieval, updating, and deletion.
+
+---
+
+#### **Next Steps**
+
+1. **Frontend Integration:**
+
+   - Send POST and GET requests from the React frontend to interact with the backend.
+
+2. **Advanced Features:**
+
+   - Implement error handling middleware for consistent API responses.
+   - Add data validation using a utility service for cleaner request handling.
+
+3. **Visualization Preparation:**
+
+   - Plan and structure the visualization logic for the frontend, leveraging fetched data.
+
+4. **API Integration:**
+   - Integrate with Spotify API for auto-filling track details based on user input.
+
+---
+
+- **Testing Tool:** Postman was used to test all endpoints.

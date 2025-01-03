@@ -1,12 +1,19 @@
-# VibeView a Data Collection and Visualization Tool
+# VibeView: A Data Collection and Visualization Tool
 
 A full-stack project designed to collect, store, and visualize user data interactively. The project is modular and extensible, allowing future integration with external APIs such as the Spotify API.
 
+---
+
 ## Features
 
-- **Frontend:** Collect user input via a responsive React-based form.
-- **Backend:** Store user data securely in a database using a Node.js and Express API.
-- **Visualization:** Fetch and visualize stored data in real time.
+- **Frontend:**
+  - Collect user input via a responsive React-based form.
+  - Manage form state using React Hooks and custom hooks for validation and submission logic.
+- **Backend:**
+  - Store user data securely in a MongoDB database using a Node.js and Express API.
+  - Modular structure with clear separation of concerns following the SOLID principles.
+- **Visualization:**
+  - Fetch and visualize stored data in real-time (planned feature for future updates).
 
 ---
 
@@ -44,7 +51,7 @@ A full-stack project designed to collect, store, and visualize user data interac
    npm install
    ```
 
-4. Configure environment variables\*\*:
+4. Configure environment variables:
 
    - Create a `.env` file in the `backend` folder with the following configuration:
      ```env
@@ -70,6 +77,32 @@ A full-stack project designed to collect, store, and visualize user data interac
 
 ---
 
+## Backend Structure
+
+### Key Features
+
+- **API Routes:**
+
+  - Modular routing using `apiRoutes.js` and individual route files (e.g., `trackRoutes.js`).
+  - Fully documented routes with JSDoc comments for clarity and maintainability.
+
+- **Database:**
+
+  - Tracks stored in a MongoDB database using a well-defined `TrackSchema`.
+
+- **Controllers:**
+  - All route logic is handled by controllers (e.g., `TrackController.js`) for better adherence to SOLID principles.
+
+### Example Routes
+
+- `GET /api/tracks`: Fetch all tracks from the database.
+- `POST /api/tracks`: Create a new track.
+- `GET /api/tracks/:id`: Fetch a track by its ID.
+- `PUT /api/tracks/:id`: Update a track.
+- `DELETE /api/tracks/:id`: Delete a track.
+
+---
+
 ## Documentation
 
 This project includes the following additional documentation:
@@ -88,8 +121,8 @@ This project includes the following additional documentation:
 
 - **Frontend:** React, Vite
 - **Backend:** Node.js, Express.js
-- **Database:** [MongoDB]
-- **Visualization:** D3.js
+- **Database:** MongoDB
+- **Visualization:** D3.js (planned)
 
 ---
 
