@@ -38,4 +38,22 @@ router.get("/:id", async (req, res) => {
 	}
 });
 
+/**
+ * POST /api/tracks
+ * Creates a new track and saves it to the database.
+ */
+router.post("/", async (req, res) => {
+	try {
+		const newTrack = new Track(req.body); // Create a new track instance
+		await newTrack.save(); // Save the track to the database
+		res
+			.status(201)
+			.json({ message: "Track created successfully", track: newTrack });
+	} catch (error) {
+		res
+			.status(400)
+			.json({ message: "Failed to create track", error: error.message });
+	}
+});
+
 export default router;
