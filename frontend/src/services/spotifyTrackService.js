@@ -11,10 +11,10 @@ const SPOTIFY_API_URL = import.meta.env.VITE_SPOTIFY_API_URL;
  */
 export const searchSpotifyTracks = async (query) => {
 	try {
-		const token = await fetchSpotifyToken(); // Fetch the access token
+		const token = await fetchSpotifyToken();
 
 		const response = await fetch(
-			`${SPOTIFY_API_URL}/search?type=track&q=${query}`,
+			`${SPOTIFY_API_URL}/search?type=track&q=${encodeURIComponent(query)}`,
 			{
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -27,15 +27,19 @@ export const searchSpotifyTracks = async (query) => {
 		}
 
 		const data = await response.json();
-
-		// Map the response to extract relevant track details
+		console.log(data);
+		// Map the response to match what the UI expects
 		return data.tracks.items.map((track) => ({
-			_id: track.id,
-			trackTitle: track.name,
-			artistName: track.artists,
-			albumName: track.album.name,
+			id: track.id,
+			title: track.name,
+			artist:
+				track.artists?.map((artist) => artist.name).join(", ") ||
+				"Unknown Artist",
+			album: track.album.name,
 			duration: Math.floor(track.duration_ms / 1000),
-			releaseYear: track.album.release_date,
+			popularity: track.popularity,
+			previewUrl: track.preview_url,
+			releaseYear: track.album.release_date.split("-")[0],
 		}));
 	} catch (error) {
 		console.error("Error searching Spotify tracks:", error.message);
