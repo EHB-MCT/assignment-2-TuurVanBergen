@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { validateMusicForm } from "../utils/validation";
-
+import { validateMusicForm } from "../utils/validation.js";
+import { addTrack } from "../services/trackService.js";
 /**
  * Custom hook for managing music form state, validation, and submission logic.
  *
@@ -28,15 +28,22 @@ export const useMusicForm = (initialState) => {
 	};
 
 	// Validate form and handle submission
-	const handleFormSubmit = (event, onSuccess) => {
+	const handleFormSubmit = async (event, onSuccess) => {
 		event.preventDefault();
 		const validationErrors = validateMusicForm(formData);
 		if (Object.keys(validationErrors).length > 0) {
 			setErrors(validationErrors);
 			return;
 		}
-		console.log("Form Submitted:", formData);
-		if (onSuccess) onSuccess();
+
+		try {
+			await addTrack(formData); // Call the service function
+			console.log("Track added successfully:", formData);
+			if (onSuccess) onSuccess();
+		} catch (error) {
+			console.log("Track added successfully:", formData);
+			console.error("Error submitting form:", error.message);
+		}
 	};
 
 	// Reset form to initial state

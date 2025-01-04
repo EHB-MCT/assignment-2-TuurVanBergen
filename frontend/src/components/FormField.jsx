@@ -44,7 +44,7 @@ const FormField = ({ fieldConfig, value, error, onChange }) => {
 				name={fieldName}
 				type={inputType}
 				placeholder={inputPlaceholder}
-				value={value}
+				value={value || ""}
 				onChange={onChange}
 				{...rest}
 			/>
