@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import routes from "./src/routes/apiRoutes.js";
@@ -6,6 +7,12 @@ import routes from "./src/routes/apiRoutes.js";
 dotenv.config();
 
 const app = express();
+
+// Enable CORS
+/**
+ * @description Configures Cross-Origin Resource Sharing (CORS) to allow requests from specific origins.
+ */
+app.use(cors()); // Replace with your frontend's URL in production
 app.use(express.json());
 
 /**

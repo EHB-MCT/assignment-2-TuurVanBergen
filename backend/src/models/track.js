@@ -16,7 +16,7 @@ const TrackSchema = new mongoose.Schema(
 		 * @required
 		 * @validation Trims extra spaces and ensures the title is provided.
 		 */
-		title: {
+		trackTitle: {
 			type: String,
 			required: [true, "Track title is required"],
 			trim: true,
@@ -28,7 +28,7 @@ const TrackSchema = new mongoose.Schema(
 		 * @required
 		 * @validation Trims extra spaces and ensures the artist name is provided.
 		 */
-		artist: {
+		artistName: {
 			type: String,
 			required: [true, "Artist name is required"],
 			trim: true,
@@ -40,7 +40,7 @@ const TrackSchema = new mongoose.Schema(
 		 * @optional
 		 * @validation Trims extra spaces.
 		 */
-		album: {
+		albumName: {
 			type: String,
 			trim: true,
 		},
@@ -51,7 +51,7 @@ const TrackSchema = new mongoose.Schema(
 		 * @optional
 		 * @validation Must be a valid year between 1500 and the current year.
 		 */
-		year: {
+		releaseYear: {
 			type: Number,
 			validate: {
 				validator: (value) => value > 1500 && value <= new Date().getFullYear(),
