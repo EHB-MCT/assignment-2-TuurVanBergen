@@ -1,19 +1,22 @@
 ## **Dataflow**
 
-**High-Level Overview:**
+### **High-Level Overview:**
 
 1. **Frontend:**
 
    - The user fills out a form with details such as track title, artist, album, etc.
    - Input data is managed using React state (`useState`) and a custom hook (`useMusicForm`).
+   - Tracks are dynamically fetched and displayed when navigating to the visualization page using a custom hook (`useFetchTracks`).
 
 2. **Backend:**
 
    - Data submitted from the frontend is sent to the backend via a POST request.
    - The backend validates the data using Mongoose schema validators before storing it in the MongoDB database.
+   - Tracks are fetched from the database and sent to the frontend via GET requests.
 
 3. **Output:**
-   - Stored data can be fetched via GET requests for visualization or further processing.
+
+   - Fetched data is used for visualization or further processing on the frontend.
 
 ---
 
@@ -52,10 +55,24 @@
 
 ---
 
-#### **3. Backend: Data Processing**
+#### **3. Frontend: Fetching Tracks**
 
 - **Description:**
-  - The backend receives the POST request.
+  When the user navigates to the visualization page:
+
+  1. A GET request is triggered to fetch all tracks stored in the database.
+  2. The fetched data is stored in React state and displayed dynamically.
+
+- **Process:**
+  - A custom hook (`useFetchTracks`) manages the fetch operation.
+  - The hook fetches data from the `/api/tracks` endpoint and handles loading and error states.
+
+---
+
+#### **4. Backend: Data Processing**
+
+- **Description:**
+  - The backend receives the POST and GET requests.
   - Validates the data using Mongoose schema validation (e.g., required fields, numeric ranges, etc.).
   - Stores the validated data in the MongoDB database.
 - **Process:**
@@ -68,32 +85,32 @@
 
 ---
 
-### **Visual Representation (ASCII Diagram)**
+### **Visual Representation (Updated ASCII Diagram)**
 
 ```plaintext
 User Input --> React State (formData) --> POST Request --> Backend Validation --> MongoDB Storage
-                                                                   ^
-                                                                   |
-                                                             GET/PUT/DELETE
+    ^                                                                               |
+    |                                                                               v
+GET Request <-- useFetchTracks Hook <-- Visualization Page <-- Rendered Track Data
 ```
 
 ---
 
 ### **Future Extensions**
 
-1. **Advanced Validation:**
+1. **Spotify API Integration:**
+
+   - Use the Spotify API to dynamically fetch track suggestions and auto-fill form fields.
+
+2. **Advanced Validation:**
 
    - Add comprehensive validation in both frontend and backend to prevent redundant checks.
 
-2. **Error Handling:**
+3. **Error Handling:**
 
-   - Implement user-friendly error messages for failed submissions or validation errors.
+   - Implement user-friendly error messages for failed submissions, validation errors, or failed fetch operations.
 
-3. **Data Visualization:**
-
-   - Use the fetched data to create interactive visualizations on the frontend.
-
-4. **API Integration:**
-   - Integrate with Spotify API for auto-filling track details based on user input.
+4. **Interactive Data Visualization:**
+   - Utilize libraries like D3.js or Chart.js to create dynamic and engaging visualizations for track data.
 
 ---
