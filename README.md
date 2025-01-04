@@ -9,9 +9,11 @@ A full-stack project designed to collect, store, and visualize user data interac
 - **Frontend:**
   - Collect user input via a responsive React-based form.
   - Manage form state using React Hooks and custom hooks for validation and submission logic.
+  - Fetch track data dynamically for visualization via `TrackDataContainer` and `useFetchTracks` hook.
 - **Backend:**
   - Store user data securely in a MongoDB database using a Node.js and Express API.
   - Modular structure with clear separation of concerns following the SOLID principles.
+  - Supports `GET` and `POST` routes for track management.
 - **Visualization:**
   - Fetch and visualize stored data in real-time (planned feature for future updates).
 
@@ -85,6 +87,9 @@ A full-stack project designed to collect, store, and visualize user data interac
 
   - Modular routing using `apiRoutes.js` and individual route files (e.g., `trackRoutes.js`).
   - Fully documented routes with JSDoc comments for clarity and maintainability.
+  - Integrated with the frontend for `GET` and `POST` operations:
+    - `GET /api/tracks` - Fetch all tracks from the database.
+    - `POST /api/tracks` - Add new tracks to the database.
 
 - **Database:**
 
@@ -107,12 +112,12 @@ A full-stack project designed to collect, store, and visualize user data interac
 
 This project includes the following additional documentation:
 
-- [API Documentation](API_DOCUMENTATION.md): Details about the backend API endpoints.
-- [Changelog](CHANGELOG.md): Log of changes made throughout the project.
-- [Progress](PROGRESS.md): Updates about project progress.
-- [Dataflow](DATAFLOW.md): Explanation of how data flows between frontend, backend, and database.
-- [Processes](PROCESSES.md): Detailed descriptions of the project processes.
-- [Naming Conventions](NAMING_CONVENTIONS.md): Standards for naming conventions.
+- [API Documentation](./docs/API_DOCUMENTATION.md): Details about the backend API endpoints.
+- [Changelog](./docs/CHANGELOG.md): Log of changes made throughout the project.
+- [Progress](./docs/PROGRESS.md): Updates about project progress.
+- [Dataflow](./docs/DATAFLOW.md): Explanation of how data flows between frontend, backend, and database.
+- [Processes](./docs/PROCESSES.md): Detailed descriptions of the project processes.
+- [Naming Conventions](./docs/NAMING_CONVENTIONS.md): Standards for naming conventions.
 - [License](LICENSE): Information about the project license.
 
 ---
@@ -132,11 +137,18 @@ This project includes the following additional documentation:
 
 ---
 
+## Future Integrations
+
+- **Spotify API Integration:**
+
+  - Allow users to search for tracks and autofill the form using Spotify's extensive music database.
+  - Provide track suggestions dynamically based on user input.
+
+- **Interactive Visualizations:**
+  - Use libraries like D3.js or Chart.js to create dynamic and engaging visualizations of the stored track data.
+
 ## Notes
 
-- The original project, focused on Rijksmuseum Data Visualization, has been archived. This project reflects a new direction and purpose.
-- For archived content and structure, refer to previous commits.
-- Future integrations, such as the Spotify API for enhanced user interaction, are planned.
-- Regular updates will be made to the [Changelog](CHANGELOG.md).
+- [Changelog](./docs/CHANGELOG.md): Log of changes made throughout the project.
 
 ---
