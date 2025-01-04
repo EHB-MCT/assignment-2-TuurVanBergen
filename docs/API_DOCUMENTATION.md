@@ -130,6 +130,54 @@
 
 ---
 
+#### **4. Search Spotify Tracks**
+
+- **URL**: `/spotify/search`
+- **Method**: `GET`
+- **Description**: Fetches track search results from the Spotify API based on a query.
+
+##### **Request**
+
+- **Headers**:
+
+  - **`Authorization`**: `Bearer <Spotify Access Token>`
+
+- **Query Parameters**:
+  - **`q`** (string, required): Search query (e.g., track name or artist).
+  - **`type`** (string, optional): Type of search, default is `track`.
+
+##### **Response**
+
+- **Status Code**: `200 OK`
+- **Body**:
+
+  ```json
+  {
+  	"message": "Spotify tracks fetched successfully",
+  	"tracks": [
+  		{
+  			"id": "1a2b3c4d",
+  			"title": "Track Title",
+  			"artist": "Artist Name",
+  			"album": "Album Name",
+  			"releaseYear": 2023,
+  			"duration": 210
+  		}
+  	]
+  }
+  ```
+
+- **Status Code**: `400 Bad Request`
+- **Body**:
+  ```json
+  {
+  	"message": "Failed to fetch Spotify tracks",
+  	"error": "Invalid query"
+  }
+  ```
+
+---
+
 ### **Summary of Current Functionality**
 
 The API currently supports the following:
@@ -137,12 +185,14 @@ The API currently supports the following:
 1. **Status Check**: Ensures the server is running.
 2. **Fetching All Tracks**: Retrieves all tracks stored in the database.
 3. **Creating a Track**: Allows clients to create and save new tracks.
+4. **Spotify Search**: Enables searching for tracks using the Spotify API.
 
 ---
 
 ### **Notes for Future Enhancements**
 
-- Integration with Spotify's API for dynamic track searching.
-- Adding additional endpoints for track updates (`PUT`) and deletions (`DELETE`).
+- Add support for detailed Spotify track metadata retrieval (e.g., genres, lyrics).
+- Implement advanced filtering options for the `/tracks` endpoint.
+- Add functionality for track updates (`PUT`) and deletions (`DELETE`).
 
 ---
