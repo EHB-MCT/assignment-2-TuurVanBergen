@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FormField from "./FormField";
 import SpotifySearchInput from "./SpotifySearchInput";
+import { formFieldsConfig } from "../utils/formFieldsConfig";
+import { validateMusicForm } from "../utils/validation";
 import "../styles/components/musicForm.css";
 
 /**
@@ -12,22 +14,14 @@ import "../styles/components/musicForm.css";
  * @component
  */
 const MusicForm = () => {
-	/**
-	 * Initial state for the form.
-	 * Represents default values for all form fields.
-	 */
-	const initialFormState = {
-		trackTitle: "",
-		artistName: "",
-		albumName: "",
-		releaseYear: "",
-		genre: "",
-		duration: "",
-		rating: "",
-	};
+	// Initial state for the form
+	const initialFormState = formFieldsConfig.reduce((acc, field) => {
+		acc[field.fieldName] = "";
+		return acc;
+	}, {});
 
-	// State to manage form data and error messages
 	const [formData, setFormData] = useState(initialFormState);
+	const [errors, setErrors] = useState({});
 	const [error, setError] = useState(null);
 
 	/**
@@ -63,12 +57,18 @@ const MusicForm = () => {
 
 	/**
 	 * Handle form submission.
-	 * Sends a POST request to the server to add the track to the database.
+	 * Validates form data and sends a POST request to add the track to the database.
 	 *
 	 * @param {Object} event - The form submission event.
 	 */
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+
+		const validationErrors = validateMusicForm(formData);
+		if (Object.keys(validationErrors).length > 0) {
+			setErrors(validationErrors);
+			return;
+		}
 
 		try {
 			const response = await fetch(import.meta.env.VITE_BASE_URL, {
@@ -87,6 +87,7 @@ const MusicForm = () => {
 			const result = await response.json();
 			console.log("Track added successfully:", result);
 			setFormData(initialFormState); // Reset form after successful submission
+			setErrors({});
 		} catch (err) {
 			console.error("Error submitting form:", err.message);
 			setError(err.message);
@@ -101,24 +102,17 @@ const MusicForm = () => {
 			<SpotifySearchInput onTrackSelect={handleTrackSelect} />
 
 			{/* Manual Fields */}
-			{Object.keys(initialFormState).map((fieldKey) => (
+			{formFieldsConfig.map((fieldConfig) => (
 				<FormField
-					key={fieldKey}
-					fieldConfig={{
-						labelText: fieldKey
-							.replace(/([A-Z])/g, " $1") // Add spaces before uppercase letters
-							.replace(/^./, (str) => str.toUpperCase()), // Capitalize the first letter
-						inputId: fieldKey,
-						fieldName: fieldKey,
-						inputType: "text",
-						inputPlaceholder: `Enter ${fieldKey}`,
-					}}
-					value={formData[fieldKey]}
+					key={fieldConfig.fieldName}
+					fieldConfig={fieldConfig}
+					value={formData[fieldConfig.fieldName]}
+					error={errors[fieldConfig.fieldName]} // Display validation errors
 					onChange={handleInputChange}
 				/>
 			))}
 
-			{/* Error Message */}
+			{/* General Error Message */}
 			{error && <p className="music-form__error">{error}</p>}
 
 			{/* Submit Button */}

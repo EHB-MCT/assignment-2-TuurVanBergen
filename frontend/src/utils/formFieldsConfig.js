@@ -4,65 +4,54 @@
  *
  * @type {Array<Object>}
  * @property {string} labelText - The label text for the input field.
- * @property {string} inputId - The unique ID for the input field.
  * @property {string} fieldName - The name attribute of the input field.
  * @property {string} inputType - The type attribute of the input field (e.g., "text", "number").
  * @property {string} inputPlaceholder - The placeholder text for the input field.
- * @property {string} [min] -The minimum value for numeric inputs.
- * @property {string} [max] -The maximum value for numeric inputs.
+ * @property {string} [min] - The minimum value for numeric inputs (optional).
+ * @property {string} [max] - The maximum value for numeric inputs (optional).
  */
 export const formFieldsConfig = [
 	{
 		labelText: "Track Title",
-		inputId: "track-title",
 		fieldName: "trackTitle",
 		inputType: "text",
 		inputPlaceholder: "Enter track title",
 	},
-
 	{
 		labelText: "Artist",
-		inputId: "artist-name",
 		fieldName: "artistName",
 		inputType: "text",
 		inputPlaceholder: "Enter artist name",
 	},
-
 	{
 		labelText: "Album",
-		inputId: "album-name",
 		fieldName: "albumName",
 		inputType: "text",
 		inputPlaceholder: "Enter album name",
 	},
-
 	{
 		labelText: "Release Year",
-		inputId: "release-year",
 		fieldName: "releaseYear",
-		inputType: "text",
+		inputType: "number",
 		inputPlaceholder: "Enter release year",
+		min: "1500",
+		max: new Date().getFullYear().toString(),
 	},
-
 	{
 		labelText: "Genre",
-		inputId: "genre",
 		fieldName: "genre",
 		inputType: "text",
 		inputPlaceholder: "Enter genre",
 	},
-
 	{
 		labelText: "Duration (in seconds)",
-		inputId: "duration",
 		fieldName: "duration",
 		inputType: "number",
-		inputPlaceholder: "Enter duration",
+		inputPlaceholder: "Enter duration in seconds",
+		min: "1",
 	},
-
 	{
 		labelText: "Rating (1-5)",
-		inputId: "rating",
 		fieldName: "rating",
 		inputType: "number",
 		inputPlaceholder: "Rate the track",
