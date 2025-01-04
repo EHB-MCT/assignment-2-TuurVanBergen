@@ -1,23 +1,23 @@
-# Changelog
+## **Changelog**
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),  
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
 ## Archived Changelog (Rijksmuseum Data Visualization)
 
-The following changes were part of the old project setup and are now archived:
-[0.1.0] - 2024-12-26: Initial project setup for Rijksmuseum visualization.
+The following changes were part of the old project setup and are now archived:  
+[0.1.0] - 2024-12-26: Initial project setup for Rijksmuseum visualization.  
 [0.2.0] - 2024-12-27: API integration and initial visualizations.
 
 ---
 
 ## Current Project: VibeView - Data Visualization
 
-### [0.1.0] - 2025-01-02
+### **[0.1.0]** - 2025-01-02
 
 ### Added
 
@@ -44,20 +44,13 @@ The following changes were part of the old project setup and are now archived:
   - Added dynamic error handling and styling for invalid fields.
 
 - **Documentation:**
+
   - Updated `README.md` with project structure and setup instructions.
   - Archived the old changelog for reference.
 
-#### Changed
+---
 
-- **.gitignore:**
-  - Updated to include new dependencies and environment-specific files for both backend and frontend.
-
-#### Removed
-
-- **Legacy Code:**
-  - Archived old Rijksmuseum-related files and changes to focus on the new project direction.
-
-### [0.2.0] - 2025-01-03
+### **[0.2.0]** - 2025-01-03
 
 ### Added
 
@@ -68,11 +61,6 @@ The following changes were part of the old project setup and are now archived:
   - Added inline error messages for invalid fields with accessible styles.
   - Updated `useMusicForm` to include a reset function for clearing form data post-submission.
 
-- **CSS Updates:**
-
-  - Applied BEM methodology to all form-related CSS classes.
-  - Added detailed comments to `musicForm.css` and `formField.css`.
-
 - **Backend Enhancements:**
 
   - Separated API route handling into `src/routes/apiRoutes.js`.
@@ -82,40 +70,46 @@ The following changes were part of the old project setup and are now archived:
 
 - **Backend Models:**
 
-  - Documenteer het aanmaken van de `Track`-model in de changelog:
-    - Validering van velden zoals `title`, `artist`, `year`, `duration`, en `rating`.
+  - Created the `track` model:
+    - Validation for fields such as `trackTitle`, `artistName`, `releaseYear`, `duration`, and `rating`.
 
 - **API Endpoints:**
 
-  - Voeg de volgende routes toe aan de changelog:
-    - `GET /api/tracks` - Fetch all tracks.
-    - `GET /api/tracks/:id` - Fetch a single track by ID.
-    - `POST /api/tracks` - Create a new track.
-    - `PUT /api/tracks/:id` - Update an existing track.
-    - `DELETE /api/tracks/:id` - Delete a track.
+  - `GET /api/tracks` - Fetch all tracks.
+  - `GET /api/tracks/:id` - Fetch a single track by ID.
+  - `POST /api/tracks` - Create a new track.
+  - `PUT /api/tracks/:id` - Update an existing track.
+  - `DELETE /api/tracks/:id` - Delete a track.
 
-**Controller Refactor:**
+---
 
-- Moved route logic to the `TrackController` to adhere to the SOLID principles.
+### **[0.3.0]** - 2025-01-04
 
-**Route Organization:**
+### Added
 
-- Split API routes into `src/routes/api/trackRoutes.js` and `src/routes/apiRoutes.js` for better organization and scalability.
+- **Frontend-Backend Integration:**
+
+  - Implemented full integration between the frontend and backend for `GET` and `POST` requests.
+  - Data flow established:
+    - Fetching all tracks from the backend to display on the frontend.
+    - Submitting new tracks from the form to the backend for database storage.
+
+- **API Enhancements:**
+
+  - Updated API endpoints:
+    - Improved error handling for invalid track submissions.
+    - Added validation messages.
 
 - **Documentation Updates:**
 
-  - Added JSDoc comments to all core components, hooks, and utility functions.
-  - Included JSDoc comments and updated the API documentation to reflect the latest changes.
-  - Improved inline comments for clarity in both JavaScript and CSS files.
+  - Updated API documentation to reflect the implemented `GET` and `POST` functionality.
 
-#### Changed
+---
 
-- **Refactored Project Structure:**
-
-  - Separated API route handling into `src/routes/apiRoutes.js`.
-  - Moved backend logic for database connection into `config/db.js`.
-
-### Notes:
+### **Notes**
 
 - For detailed setup instructions, refer to the `README.md`.
+- Future updates will include Spotify API integration.
 - This changelog adheres to the Semantic Versioning conventions for consistent version management.
+
+---
