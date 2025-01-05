@@ -1,4 +1,17 @@
-/* .music-form: The main container for the form. */
+/**
+ * Music Form Styles
+ * 
+ * This stylesheet defines the styles for the music form, including the main container,
+ * title, and submit button.
+ */
+
+/**
+ * Form Container
+ * 
+ * - Defines the layout and appearance of the form.
+ * - Centers the form on the page with a maximum width and padding.
+ * - Adds a background color, rounded corners, and a shadow for styling.
+ */
 .music-form {
 	width: 100%;
 	max-width: 600px;
@@ -8,13 +21,26 @@
 	border-radius: 5px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-/* .music-form__title: The title of the form. */
+
+/**
+ * Form Title
+ * 
+ * - Styles the title of the form.
+ * - Adds spacing below the title for better layout.
+ */
 .music-form__title {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
 	text-align: center;
 }
-/* .music-form__submit: The submit button for the form. */
+
+/**
+ * Submit Button
+ * 
+ * - Styles the form's submit button.
+ * - Sets a bold background color with light text for visibility.
+ * - Adds padding, rounded corners, and a smooth hover transition.
+ */
 .music-form__submit {
 	display: block;
 	width: 100%;
@@ -27,7 +53,13 @@
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
-/* .music-form__submit:hover: Style for the button when hovered over. */
+
+/**
+ * Submit Button Hover
+ * 
+ * - Changes the background color when the button is hovered over.
+ * - Provides visual feedback for interactivity.
+ */
 .music-form__submit:hover {
 	background-color: #a00909;
 }

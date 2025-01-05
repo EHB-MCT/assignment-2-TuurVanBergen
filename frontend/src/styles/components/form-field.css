@@ -1,11 +1,28 @@
-/* .form-field: The main container for each form field. */
+/**
+ * Form Field Styles
+ * 
+ * This stylesheet defines the styles for individual form fields, including their 
+ * labels, input elements, and error messages.
+ */
+
+/**
+ * Form Field Container
+ * 
+ * - Defines the layout for each form field.
+ * - Arranges the label and input field in a vertical stack.
+ */
 .form-field {
 	margin-bottom: 1rem;
 	display: flex;
 	flex-direction: column;
 }
 
-/* .form-field__label: The label associated with each input field. */
+/**
+ * Form Field Label
+ * 
+ * - Styles the label associated with each input field.
+ * - Uses bold text for emphasis.
+ */
 .form-field__label {
 	font-size: 1rem;
 	color: #333;
@@ -13,7 +30,12 @@
 	font-weight: 600;
 }
 
-/* .form-field__input: The input element styling. */
+/**
+ * Input Field
+ * 
+ * - Styles the input element with padding, rounded corners, and a subtle shadow.
+ * - Includes a smooth transition for focus and hover states.
+ */
 .form-field__input {
 	padding: 0.75rem;
 	font-size: 1rem;
@@ -25,25 +47,42 @@
 	background-color: #fff;
 }
 
-/* .form-field__input:focus: Styling for the input field when it is focused. */
+/**
+ * Input Field Focus
+ * 
+ * - Highlights the input field with a colored border and shadow when focused.
+ */
 .form-field__input:focus {
 	border-color: #bb0a0a;
 	box-shadow: 0 0 4px rgba(187, 10, 10, 0.4);
 	outline: none;
 }
 
-/* .form-field__input--error: Styling for inputs with validation errors. */
+/**
+ * Input Field with Error
+ * 
+ * - Styles the input field when validation errors occur.
+ * - Highlights the border and background with error colors.
+ */
 .form-field__input--error {
 	border-color: #bb0a0a;
 	background-color: #ffe6e6;
 }
 
-/* .form-field__input--error:focus: Styling for error inputs when focused. */
+/**
+ * Input Field with Error Focus
+ * 
+ * - Highlights the input field with an enhanced shadow when focused.
+ */
 .form-field__input--error:focus {
 	box-shadow: 0 0 4px rgba(187, 10, 10, 0.6);
 }
 
-/* .form-field__error: The error message displayed for invalid inputs. */
+/**
+ * Error Message
+ * 
+ * - Styles the error message displayed below invalid input fields.
+ */
 .form-field__error {
 	font-size: 0.875rem;
 	color: #bb0a0a;

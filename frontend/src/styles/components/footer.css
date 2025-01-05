@@ -1,4 +1,16 @@
-/* .footer: The main container for the footer section. */
+/**
+ * Footer Styles
+ * 
+ * This stylesheet defines the styles for the footer section, including its main container,
+ * navigation, and individual navigation links.
+ */
+
+/**
+ * Footer Container
+ * 
+ * - Defines the main layout for the footer.
+ * - Uses a bold background color and light text for visibility.
+ */
 .footer {
 	background-color: #bb0a0a;
 	color: #e1dddd;
@@ -6,19 +18,33 @@
 	text-align: center;
 }
 
-/* .footer__container: A flex container for organizing footer content. */
+/**
+ * Footer Content Container
+ * 
+ * - A flex container for organizing footer content.
+ * - Arranges child elements in a vertical column and centers them.
+ */
 .footer__container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-/* .footer__nav: The navigation container inside the footer. */
+/**
+ * Footer Navigation
+ * 
+ * - A container for the navigation links within the footer.
+ * - Adds spacing above and below the navigation section.
+ */
 .footer__nav {
 	margin: 1rem 0;
 }
 
-/* .footer__nav-list: The list container for navigation links. */
+/**
+ * Navigation List
+ * 
+ * - Styles the list container for navigation links.
+ */
 .footer__nav-list {
 	list-style: none;
 	display: flex;
@@ -27,7 +53,12 @@
 	margin: 0;
 }
 
-/* .footer__nav-link: Individual navigation links in the footer. */
+/**
+ * Navigation Link
+ * 
+ * - Styles individual navigation links.
+ * - Uses a light text color and removes underlines.
+ */
 .footer__nav-link {
 	color: #e1dddd;
 	text-decoration: none;

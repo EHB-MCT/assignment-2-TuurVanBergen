@@ -1,7 +1,25 @@
+/**
+ * Spotify Search Styles
+ * 
+ * This stylesheet defines the styles for the Spotify search functionality.
+ * It includes the layout and appearance of the search input field and the 
+ * dropdown list that displays search results.
+ */
+
+/**
+ * Search Container
+ * 
+ * - Positions the search bar relative to its parent for dropdown positioning.
+ */
 .spotify-search {
 	position: relative;
 }
 
+/**
+ * Search Input
+ * 
+ * - Full-width input with padding, border, and rounded corners.
+ */
 .spotify-search__input {
 	width: 100%;
 	padding: 10px;
@@ -10,6 +28,12 @@
 	border-radius: 4px;
 }
 
+/**
+ * Track List Dropdown
+ * 
+ * - Positioned below the input field.
+ * - Styled as a scrollable dropdown with borders and rounded corners.
+ */
 .spotify-track-list {
 	position: absolute;
 	top: 100%;
@@ -23,12 +47,23 @@
 	z-index: 10;
 }
 
+/**
+ * Track List Item
+ * 
+ * - Adds padding and pointer cursor.
+ * - Includes a hover effect with background color transition.
+ */
 .spotify-track-list__item {
 	padding: 10px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 }
 
+/**
+ * Track List Item Hover
+ * 
+ * - Changes background color on hover.
+ */
 .spotify-track-list__item:hover {
 	background-color: #f0f0f0;
 }

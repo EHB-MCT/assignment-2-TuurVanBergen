@@ -1,4 +1,16 @@
-/* .header: The main container for the header section. */
+/**
+ * Navigation Styles
+ * 
+ * This stylesheet defines the styles for the navigation section, including its title, 
+ * navigation container, and individual navigation links.
+ */
+
+/**
+ * Header Container
+ * 
+ * - Defines the main layout for the header.
+ * - Uses flexbox to position child elements and ensures spacing between them.
+ */
 .header {
 	background-color: #bb0a0a;
 	color: #e1dddd;
@@ -8,25 +20,45 @@
 	align-items: center;
 }
 
-/* .header__title: The title element inside the header. */
+/**
+ * Header Title
+ * 
+ * - Styles the title inside the header with a larger font size.
+ * - Removes default margins for better alignment.
+ */
 .header__title {
 	font-size: 1.5rem;
 	margin: 0;
 }
 
-/* .header__nav: The navigation container inside the header. */
+/**
+ * Header Navigation
+ * 
+ * - Defines the container for navigation links.
+ * - Uses flexbox to position links with consistent spacing.
+ */
 .header__nav {
 	display: flex;
 	gap: 10px;
 }
 
-/* .header__link: Individual navigation links in the header. */
+/**
+ * Navigation Link
+ * 
+ * - Styles individual navigation links.
+ * - Removes underlines and sets the text color.
+ */
 .header__link {
 	color: #e1dddd;
 	text-decoration: none;
 }
 
-/* .header__link--active: Modifier for the active navigation link. */
+/**
+ * Active Navigation Link
+ * 
+ * - Highlights the active navigation link.
+ * - Applies bold font weight and an underline for emphasis.
+ */
 .header__link--active {
 	font-weight: bold;
 	text-decoration: underline;
