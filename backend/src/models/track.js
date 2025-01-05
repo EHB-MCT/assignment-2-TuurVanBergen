@@ -40,6 +40,7 @@ const TrackSchema = new mongoose.Schema(
 		 */
 		albumName: {
 			type: String,
+			required: [true, "albumName is required"],
 			trim: true,
 		},
 		/**
@@ -51,6 +52,7 @@ const TrackSchema = new mongoose.Schema(
 		 */
 		releaseYear: {
 			type: Number,
+			required: [true, "releaseYear is required"],
 			validate: {
 				validator: (value) => value > 1500 && value <= new Date().getFullYear(),
 				message: "Year must be between 1500 and the current year",
@@ -65,6 +67,7 @@ const TrackSchema = new mongoose.Schema(
 		 */
 		genre: {
 			type: String,
+			required: [true, "genre is required"],
 			trim: true,
 		},
 		/**
@@ -88,13 +91,46 @@ const TrackSchema = new mongoose.Schema(
 		 */
 		rating: {
 			type: Number,
+			required: [true, "rating is required"],
 			min: [1, "Rating must be at least 1"],
 			max: [5, "Rating cannot exceed 5"],
 		},
-		mood: { type: String, trim: true },
-		activity: { type: String, trim: true },
-		listeningContext: { type: String, trim: true },
-		energyLevel: { type: Number, min: 1, max: 10 },
+		mood: {
+			type: String,
+			trim: true,
+			required: [true, "mood is required"],
+			validate: {
+				validator: (value) =>
+					["Happy", "Sad", "Motivated", "Relaxed"].includes(value),
+				message: "Invalid mood value",
+			},
+		},
+		activity: {
+			type: String,
+			trim: true,
+			required: [true, "activity is required"],
+			validate: {
+				validator: (value) =>
+					["Studying", "Exercising", "Relaxing", "Driving"].includes(value),
+				message: "Invalid activity value",
+			},
+		},
+		listeningContext: {
+			type: String,
+			trim: true,
+			required: [true, "listening context is required"],
+			validate: {
+				validator: (value) =>
+					["At home", "On the bus", "In a café", "At a party"].includes(value),
+				message: "Invalid listening context value",
+			},
+		},
+		energyLevel: {
+			type: Number,
+			required: [true, "Energy level is required"],
+			min: [1, "Energy level must be at least 1"],
+			max: [10, "Energy level cannot exceed 10"],
+		},
 	},
 	{
 		/**
