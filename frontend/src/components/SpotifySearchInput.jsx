@@ -26,13 +26,11 @@ const SpotifySearchInput = ({ onTrackSelect }) => {
 		setQuery(searchQuery);
 
 		if (searchQuery.trim()) {
-			// Trigger Spotify search API call
 			searchTracks(searchQuery);
 			setDropdownVisible(true);
 		} else {
-			// Hide the dropdown menu for empty query
+			setDropdownVisible(false);
 		}
-		setDropdownVisible(false);
 	};
 
 	/**

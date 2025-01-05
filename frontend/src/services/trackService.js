@@ -1,46 +1,36 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { TRACK_API_CLIENT } from "./apiClients/trackApiClient.js";
 
 /**
- * Fetch all tracks from the backend.
- * @returns {Promise<Array>} A promise that resolves to an array of tracks.
- * @throws Will throw an error if the fetch fails.
+ * Track Service
+ *
+ * Provides an abstraction layer for track-related API operations.
+ * Handles data processing and ensures consistent communication with the backend.
+ * This service is used in components and modules that require track data.
  */
-export const fetchAllTracks = async () => {
-	try {
-		const response = await fetch(BASE_URL);
-		if (!response.ok) {
-			throw new Error(`Failed to fetch tracks: ${response.statusText}`);
-		}
-		const data = await response.json();
-		return data.tracks;
-	} catch (error) {
-		console.error("Error fetching tracks:", error.message);
-		throw error;
-	}
-};
-/**
- * Add a new track to the backend.
- * @param {Object} trackData - The track data to be added.
- * @returns {Promise<Object>} A promise that resolves to the added track.
- * @throws Will throw an error if the post fails.
- */
-export const addTrack = async (trackData) => {
-	try {
-		const response = await fetch(BASE_URL, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(trackData),
-		});
+export const trackService = {
+	/**
+	 * Fetch all tracks from the backend.
+	 * Processes the data to ensure consistent output.
+	 * @returns {Promise<Array>} A promise that resolves to an array of tracks.
+	 * @throws Will throw an error if the data format is unexpected.
+	 */
+	fetchAllTracks: async () => {
+		const data = await TRACK_API_CLIENT.get("/");
 
-		if (!response.ok) {
-			throw new Error(`Failed to add track: ${response.statusText}`);
+		// Process data to ensure it's always an array of tracks
+		if (data.tracks && Array.isArray(data.tracks)) {
+			return data.tracks;
 		}
+		if (Array.isArray(data)) {
+			return data;
+		}
+		throw new Error("Unexpected data format");
+	},
 
-		return response.json();
-	} catch (error) {
-		console.error("Error adding track:", error.message);
-		throw error;
-	}
+	/**
+	 * Add a new track to the backend.
+	 * @param {Object} trackData - The track data to be added.
+	 * @returns {Promise<Object>} A promise that resolves to the added track.
+	 */
+	addTrack: (trackData) => TRACK_API_CLIENT.post("/tracks", trackData),
 };
