@@ -10,6 +10,18 @@ import {
 const router = express.Router();
 
 /**
+ * @module TrackRoutes
+ * @description Defines the routes for managing tracks, including fetching, creating, updating, and deleting tracks.
+ *
+ * Endpoints:
+ * - `GET /api/tracks`: Fetch all tracks.
+ * - `GET /api/tracks/:id`: Fetch a track by its ID.
+ * - `POST /api/tracks`: Create a new track.
+ * - `PUT /api/tracks/:id`: Update a track by its ID.
+ * - `DELETE /api/tracks/:id`: Delete a track by its ID.
+ */
+
+/**
  * Route to fetch all tracks.
  * @route GET /api/tracks
  */

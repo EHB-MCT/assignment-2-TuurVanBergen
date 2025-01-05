@@ -1,6 +1,19 @@
 import Track from "../models/track.js";
 
 /**
+ * @module TrackController
+ * @description Provides CRUD operations for managing `Track` resources in the database.
+ * Each function interacts with the `Track` model to handle requests and send appropriate responses.
+ *
+ * @functions
+ * - `getAllTracks`: Fetches all tracks from the database.
+ * - `getTrackById`: Fetches a single track by its ID.
+ * - `createTrack`: Creates a new track and saves it to the database.
+ * - `updateTrackById`: Updates an existing track by its ID.
+ * - `deleteTrackById`: Deletes a track by its ID.
+ */
+
+/**
  * Fetch all tracks from the database.
  * @param {Object} req - Express request object.
  * @param {Object} res - Express response object.

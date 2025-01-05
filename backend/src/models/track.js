@@ -1,11 +1,9 @@
 import mongoose from "mongoose";
 
 /**
- * Defines the schema for a music track in the database.
- * This schema includes fields for the track title, artist name, album, release year,
- * genre, duration, and user rating.
- *
- * @type {mongoose.Schema}
+ * @module Track
+ * Defines the schema and model for a music track in the database.
+ * Includes fields for title, artist, album, release year, genre, duration, and rating.
  */
 const TrackSchema = new mongoose.Schema(
 	{
