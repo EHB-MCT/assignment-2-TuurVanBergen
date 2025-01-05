@@ -58,4 +58,30 @@ export const FORM_FIELDS_CONFIG = [
 		min: "1",
 		max: "5",
 	},
+	{
+		labelText: "Mood",
+		fieldName: "mood",
+		inputType: "text",
+		inputPlaceholder: "Select your mood (Happy, Sad, Motivated, Relaxed)",
+	},
+	{
+		labelText: "Activity",
+		fieldName: "activity",
+		inputType: "text",
+		inputPlaceholder:
+			"What were you doing? (Studying, Exercising, Relaxing, Driving)",
+	},
+	{
+		labelText: "Listening Context",
+		fieldName: "listeningContext",
+		inputType: "text",
+		inputPlaceholder:
+			"Where were you? (At home, On the bus, In a café, At a party)",
+	},
+	{
+		labelText: "Energy Level",
+		fieldName: "energyLevel",
+		inputType: "number",
+		inputPlaceholder: "Rate energy level (1-10)",
+	},
 ];

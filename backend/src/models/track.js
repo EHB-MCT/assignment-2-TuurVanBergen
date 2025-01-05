@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 /**
  * @module Track
  * Defines the schema and model for a music track in the database.
- * Includes fields for title, artist, album, release year, genre, duration, and rating.
+ * Includes fields for title, artist, album, release year, genre, duration, rating, energyLevel, listeningContext, activity, mood.
  */
 const TrackSchema = new mongoose.Schema(
 	{
@@ -95,6 +95,13 @@ const TrackSchema = new mongoose.Schema(
 			min: [1, "Rating must be at least 1"],
 			max: [5, "Rating cannot exceed 5"],
 		},
+		/**
+		 * The mood associated with the track.
+		 *
+		 * @type {String}
+		 * @required
+		 * @validation Must be one of: "Happy", "Sad", "Motivated", "Relaxed".
+		 */
 		mood: {
 			type: String,
 			trim: true,
@@ -105,6 +112,13 @@ const TrackSchema = new mongoose.Schema(
 				message: "Invalid mood value",
 			},
 		},
+		/**
+		 * The activity during which the track was listened to.
+		 *
+		 * @type {String}
+		 * @required
+		 * @validation Must be one of: "Studying", "Exercising", "Relaxing", "Driving".
+		 */
 		activity: {
 			type: String,
 			trim: true,
@@ -115,6 +129,13 @@ const TrackSchema = new mongoose.Schema(
 				message: "Invalid activity value",
 			},
 		},
+		/**
+		 * The context in which the track was listened to.
+		 *
+		 * @type {String}
+		 * @required
+		 * @validation Must be one of: "At home", "On the bus", "In a café", "At a party".
+		 */
 		listeningContext: {
 			type: String,
 			trim: true,
@@ -125,6 +146,13 @@ const TrackSchema = new mongoose.Schema(
 				message: "Invalid listening context value",
 			},
 		},
+		/**
+		 * The perceived energy level of the track, on a scale of 1 to 10.
+		 *
+		 * @type {Number}
+		 * @required
+		 * @validation Must be between 1 and 10.
+		 */
 		energyLevel: {
 			type: Number,
 			required: [true, "Energy level is required"],
