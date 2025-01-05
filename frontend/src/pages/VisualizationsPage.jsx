@@ -1,39 +1,34 @@
 import "../styles/pages/visualizations-page.css";
+import MoodEnergyScatter from "../components/MoodEnergyScatter";
+import MoodActivityChart from "../components/MoodActivityChart.jsx";
 import TrackDataContainer from "../components/TrackDataContainer.jsx";
 
 /**
  * VisualizationsPage Component
  *
- * This component renders the "Visualizations" page of the application.
+ * Renders the "Visualizations" page with two charts:
+ * - `MoodEnergyScatter`: A scatter plot for mood, energy, duration, and rating.
+ * - `MoodActivityChart`: A stacked bar chart for mood distribution by activity.
  *
- * Styling:
- * - The component uses styles from `visualizations-page.css` to define its layout and appearance.
+ * Uses `TrackDataContainer` to fetch track data and provide it to the charts.
  *
- * Child Components:
- * - `TrackDataContainer`: A container component responsible for providing track data for visualization.
- *
- * @returns {JSX.Element} The rendered VisualizationsPage component.
- *
- * @example
- * return <VisualizationsPage />;
+ * @returns {JSX.Element} The rendered page.
  */
-export default function VisualizationsPage() {
+
+const VisualizationsPage = () => {
 	return (
-		<>
-			<h2>Welcome to the visualisation page</h2>
+		<div>
+			<h1>Visualizations</h1>
 			<TrackDataContainer>
 				{(tracks) => (
-					<ul>
-						{tracks.map((track) => (
-							<li key={track._id}>
-								{track.trackTitle} by {track.artistName} - {track.duration}s,{" "}
-								{track.albumName} - {track.releaseYear} - {track.genre} -{" "}
-								{track.duration} - {track.rating}
-							</li>
-						))}
-					</ul>
+					<>
+						<MoodEnergyScatter data={tracks} />
+						<MoodActivityChart data={tracks} />
+					</>
 				)}
 			</TrackDataContainer>
-		</>
+		</div>
 	);
-}
+};
+
+export default VisualizationsPage;
