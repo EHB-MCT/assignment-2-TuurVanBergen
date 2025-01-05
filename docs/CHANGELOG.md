@@ -106,10 +106,33 @@ The following changes were part of the old project setup and are now archived:
 
 ---
 
+### **[0.4.0]** - 2025-01-05
+
+### Added
+
+- **Spotify API Integration:**
+
+  - Added `SpotifySearchInput` component to integrate Spotify search functionality into the form.
+  - Implemented dropdown track selection with automatic form filling.
+
+- **Frontend Enhancements:**
+
+  - Refactored `MusicForm` to include dynamic Spotify search capabilities.
+  - Improved `FormField` component for reusability and better validation handling.
+
+- **Validation Updates:**
+
+  - Enhanced `validateMusicForm` to include year range validation.
+  - Updated `formFieldsConfig` to align with validation rules.
+
+- **Documentation:**
+
+  - Updated API documentation with Spotify integration details.
+  - Added new fields and error handling notes in the validation documentation.
+
+---
+
 ### **Notes**
 
 - For detailed setup instructions, refer to the `README.md`.
-- Future updates will include Spotify API integration.
 - This changelog adheres to the Semantic Versioning conventions for consistent version management.
-
----

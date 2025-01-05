@@ -1,94 +1,76 @@
-## **Dataflow**
+### **Updated Dataflow**
 
 ### **High-Level Overview:**
 
 1. **Frontend:**
 
-   - The user fills out a form with details such as track title, artist, album, etc.
-   - Input data is managed using React state (`useState`) and a custom hook (`useMusicForm`).
-   - Tracks are dynamically fetched and displayed when navigating to the visualization page using a custom hook (`useFetchTracks`).
+   - **Form Input:**
+     - The user fills out a form with details such as track title, artist, album, etc.
+     - Input is managed using React state (`useState`) and custom hooks (`useMusicForm`).
+   - **Spotify Search Integration:**
+     - As the user types in the artist or track field, the Spotify API is queried for dynamic suggestions.
+     - The user can select a track from a dropdown, which autofills the form fields.
+   - **Visualization:**
+     - Tracks are fetched from the backend and displayed using an interactive visualization.
 
 2. **Backend:**
 
-   - Data submitted from the frontend is sent to the backend via a POST request.
-   - The backend validates the data using Mongoose schema validators before storing it in the MongoDB database.
-   - Tracks are fetched from the database and sent to the frontend via GET requests.
+   - **Spotify Proxy:**
+     - The backend acts as a proxy for the Spotify API via `/api/spotify/search` to secure API credentials.
+   - **Data Storage:**
+     - Validated data is stored in MongoDB after a successful POST request.
+   - **Data Retrieval:**
+     - Tracks are fetched from MongoDB and served to the frontend via GET requests.
 
 3. **Output:**
-
    - Fetched data is used for visualization or further processing on the frontend.
 
 ---
 
-### **Detailed Dataflow**
+### **Updated Detailed Dataflow**
 
-#### **1. Frontend: Form Input**
+#### **1. Spotify Search Integration**
 
 - **Description:**
-  The user fills out a form with the following fields:
-  - Track Title
-  - Artist Name
-  - Album Name
-  - Release Year
-  - Genre
-  - Duration (in seconds)
-  - Rating (1-5)
+
+  - While typing in the `trackTitle` or `artistName` fields in the form, the Spotify API is queried through a backend proxy.
+
 - **Process:**
-  - Each input field is bound to a field in the React state (`formData`).
-  - The `handleInputChange` function updates the state whenever a user modifies an input field.
+  - The user enters text in the input field.
+  - The `SpotifySearchInput` component invokes the `useSpotifySearch` hook, which makes a request to the backend.
+  - The backend queries the Spotify API and returns filtered results.
+  - Search results are displayed in a dropdown menu.
+  - When the user selects a track, the corresponding fields in the form are autofilled.
 
 ---
 
 #### **2. Frontend: Form Submission**
 
-- **Description:**
-  When the user clicks the **Submit** button:
-
-  1. The form validates the input in the frontend (basic validation for required fields).
-  2. A POST request is sent to the backend with the `formData`.
-
-- **Process:**
-  - The `handleFormSubmit` function:
-    - Prevents default browser behavior.
-    - Sends the data to the backend API endpoint `/api/tracks` using `fetch`.
-    - Clears the form after submission if the request is successful.
+- **Unchanged:**
+  - The form data is sent to the backend via a POST request. The backend validates the data and stores it in the database.
 
 ---
 
-#### **3. Frontend: Fetching Tracks**
+#### **3. Backend: Spotify Proxy**
 
 - **Description:**
-  When the user navigates to the visualization page:
 
-  1. A GET request is triggered to fetch all tracks stored in the database.
-  2. The fetched data is stored in React state and displayed dynamically.
+  - A new `/api/spotify/search` endpoint acts as a proxy to fetch data from the Spotify API and pass it to the frontend.
 
 - **Process:**
-  - A custom hook (`useFetchTracks`) manages the fetch operation.
-  - The hook fetches data from the `/api/tracks` endpoint and handles loading and error states.
+  - The backend validates the incoming request and appends a valid Spotify access token.
+  - The Spotify API is queried for matching tracks based on the user's input.
+  - Results are structured and returned to the frontend for display in the dropdown.
 
 ---
 
-#### **4. Backend: Data Processing**
-
-- **Description:**
-  - The backend receives the POST and GET requests.
-  - Validates the data using Mongoose schema validation (e.g., required fields, numeric ranges, etc.).
-  - Stores the validated data in the MongoDB database.
-- **Process:**
-  - Routes handle incoming requests:
-    - **POST `/api/tracks`**: Adds a new track to the database.
-    - **GET `/api/tracks`**: Fetches all stored tracks for visualization.
-    - **GET `/api/tracks/:id`**: Fetches a specific track by its ID.
-    - **PUT `/api/tracks/:id`**: Updates an existing track.
-    - **DELETE `/api/tracks/:id`**: Deletes a track by its ID.
-
----
-
-### **Visual Representation (Updated ASCII Diagram)**
+### **Updated ASCII Diagram**
 
 ```plaintext
 User Input --> React State (formData) --> POST Request --> Backend Validation --> MongoDB Storage
+    ^          ^                                                                 |
+    |          |                                                                 v
+Spotify Search API <-- useSpotifySearch Hook <-- SpotifySearchInput <-- User Interaction
     ^                                                                               |
     |                                                                               v
 GET Request <-- useFetchTracks Hook <-- Visualization Page <-- Rendered Track Data
@@ -98,19 +80,7 @@ GET Request <-- useFetchTracks Hook <-- Visualization Page <-- Rendered Track Da
 
 ### **Future Extensions**
 
-1. **Spotify API Integration:**
-
-   - Use the Spotify API to dynamically fetch track suggestions and auto-fill form fields.
-
-2. **Advanced Validation:**
-
-   - Add comprehensive validation in both frontend and backend to prevent redundant checks.
-
-3. **Error Handling:**
-
-   - Implement user-friendly error messages for failed submissions, validation errors, or failed fetch operations.
-
-4. **Interactive Data Visualization:**
-   - Utilize libraries like D3.js or Chart.js to create dynamic and engaging visualizations for track data.
+1. **Data Visualization:**
+   - Data visualizations of statistics.
 
 ---

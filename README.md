@@ -1,15 +1,16 @@
-# VibeView: A Data Collection and Visualization Tool
+# **VibeView: A Data Collection and Visualization Tool**
 
-A full-stack project designed to collect, store, and visualize user data interactively. The project is modular and extensible, allowing future integration with external APIs such as the Spotify API.
+A full-stack project designed to collect, store, and visualize user data interactively. The project is modular and extensible, with integrated Spotify API functionality for easier track entry.
 
 ---
 
-## Features
+## **Features**
 
 - **Frontend:**
   - Collect user input via a responsive React-based form.
   - Manage form state using React Hooks and custom hooks for validation and submission logic.
-  - Fetch track data dynamically for visualization via `TrackDataContainer` and `useFetchTracks` hook.
+  - Dynamically fetch track suggestions using the Spotify API for seamless data entry.
+  - Fetch stored track data dynamically for visualization via `TrackDataContainer` and `useFetchTracks` hook.
 - **Backend:**
   - Store user data securely in a MongoDB database using a Node.js and Express API.
   - Modular structure with clear separation of concerns following the SOLID principles.
@@ -19,15 +20,17 @@ A full-stack project designed to collect, store, and visualize user data interac
 
 ---
 
-## Installation
+## **Installation**
 
-### Prerequisites
+### **Prerequisites**
 
 - [Node.js](https://nodejs.org/) (v16 or later)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 - [MongoDB](https://www.mongodb.com/) (local or cloud instance, e.g., MongoDB Atlas)
 
-### Steps
+---
+
+### **Steps**
 
 1. Clone the repository:
 
@@ -79,9 +82,9 @@ A full-stack project designed to collect, store, and visualize user data interac
 
 ---
 
-## Backend Structure
+## **Backend Structure**
 
-### Key Features
+### **Key Features**
 
 - **API Routes:**
 
@@ -98,7 +101,7 @@ A full-stack project designed to collect, store, and visualize user data interac
 - **Controllers:**
   - All route logic is handled by controllers (e.g., `TrackController.js`) for better adherence to SOLID principles.
 
-### Example Routes
+### **Example Routes**
 
 - `GET /api/tracks`: Fetch all tracks from the database.
 - `POST /api/tracks`: Create a new track.
@@ -108,7 +111,7 @@ A full-stack project designed to collect, store, and visualize user data interac
 
 ---
 
-## Documentation
+## **Documentation**
 
 This project includes the following additional documentation:
 
@@ -122,7 +125,7 @@ This project includes the following additional documentation:
 
 ---
 
-## Technologies Used
+## **Technologies Used**
 
 - **Frontend:** React, Vite
 - **Backend:** Node.js, Express.js
@@ -131,23 +134,20 @@ This project includes the following additional documentation:
 
 ---
 
-## Author
+## **Author**
 
 - **Tuur Van Bergen**
 
 ---
 
-## Future Integrations
-
-- **Spotify API Integration:**
-
-  - Allow users to search for tracks and autofill the form using Spotify's extensive music database.
-  - Provide track suggestions dynamically based on user input.
+## **Future Integrations**
 
 - **Interactive Visualizations:**
   - Use libraries like D3.js or Chart.js to create dynamic and engaging visualizations of the stored track data.
 
-## Notes
+---
+
+## **Notes**
 
 - [Changelog](./docs/CHANGELOG.md): Log of changes made throughout the project.
 
