@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { searchSpotifyTracks } from "../services/spotifyTrackService.js";
-import { fetchSpotifyToken } from "../services/spotifyAuthService.js";
 
 /**
- * Custom hook to manage Spotify track search.
+ * useSpotifySearch Hook
  *
- * @returns {Object} Contains the following:
- * - `results`: Array of tracks returned from Spotify.
- * - `isLoading`: Boolean indicating whether the search is in progress.
- * - `error`: Error message if the search fails.
- * - `searchTracks`: Function to perform a search based on a query.
- * - `selectTrack`: Function to select a track from the results.
- * - `selectedTrack`: The currently selected track, if any.
+ * Manages Spotify track search functionality, including state for results, loading status,
+ * errors, and the currently selected track.
+ *
+ * @returns {Object} Contains:
+ * - `results` {Array}: Tracks returned from Spotify.
+ * - `isLoading` {boolean}: Indicates whether a search is in progress.
+ * - `error` {string|null}: Error message if the search fails.
+ * - `searchTracks` {Function}: Performs a search using a query.
+ * - `selectTrack` {Function}: Sets the selected track from results.
+ * - `selectedTrack` {Object|null}: The currently selected track.
  */
 export const useSpotifySearch = () => {
 	const [results, setResults] = useState([]);
@@ -20,7 +22,7 @@ export const useSpotifySearch = () => {
 	const [selectedTrack, setSelectedTrack] = useState(null);
 
 	/**
-	 * Performs a search for tracks using the Spotify API.
+	 * Searches for tracks using the Spotify API.
 	 *
 	 * @param {string} query - The search query (e.g., artist or track name).
 	 */
@@ -30,8 +32,7 @@ export const useSpotifySearch = () => {
 		setResults([]);
 
 		try {
-			const token = await fetchSpotifyToken(); // Fetch the access token
-			const tracks = await searchSpotifyTracks(query, token); // Search for tracks
+			const tracks = await searchSpotifyTracks(query);
 			setResults(tracks);
 		} catch (err) {
 			setError(err.message);
@@ -41,7 +42,7 @@ export const useSpotifySearch = () => {
 	};
 
 	/**
-	 * Selects a track from the search results.
+	 * Sets the selected track from search results.
 	 *
 	 * @param {Object} track - The track to select.
 	 */
