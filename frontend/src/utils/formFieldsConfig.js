@@ -10,7 +10,7 @@
  * @property {string} [min] - The minimum value for numeric inputs (optional).
  * @property {string} [max] - The maximum value for numeric inputs (optional).
  */
-export const formFieldsConfig = [
+export const FORM_FIELDS_CONFIG = [
 	{
 		labelText: "Track Title",
 		fieldName: "trackTitle",
@@ -38,12 +38,6 @@ export const formFieldsConfig = [
 		max: new Date().getFullYear().toString(),
 	},
 	{
-		labelText: "Genre",
-		fieldName: "genre",
-		inputType: "text",
-		inputPlaceholder: "Enter genre",
-	},
-	{
 		labelText: "Duration (in seconds)",
 		fieldName: "duration",
 		inputType: "number",
@@ -51,10 +45,16 @@ export const formFieldsConfig = [
 		min: "1",
 	},
 	{
+		labelText: "Genre",
+		fieldName: "genre",
+		inputType: "text",
+		inputPlaceholder: "Enter genre",
+	},
+	{
 		labelText: "Rating (1-5)",
 		fieldName: "rating",
 		inputType: "number",
-		inputPlaceholder: "Rate the track",
+		inputPlaceholder: "Rate the track (1-5)",
 		min: "1",
 		max: "5",
 	},
