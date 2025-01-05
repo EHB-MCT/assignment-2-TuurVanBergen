@@ -91,6 +91,10 @@ const TrackSchema = new mongoose.Schema(
 			min: [1, "Rating must be at least 1"],
 			max: [5, "Rating cannot exceed 5"],
 		},
+		mood: { type: String, trim: true },
+		activity: { type: String, trim: true },
+		listeningContext: { type: String, trim: true },
+		energyLevel: { type: Number, min: 1, max: 10 },
 	},
 	{
 		/**
