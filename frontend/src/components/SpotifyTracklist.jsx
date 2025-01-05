@@ -1,18 +1,17 @@
-import "../styles/components/spotifyTrackList.css";
+import "../styles/components/spotify-track-list.css";
 
 /* eslint-disable react/prop-types */
 /**
  * SpotifyTrackList Component
  *
- * Displays a scrollable list of Spotify tracks.
- * Allows users to select a track from the list.
+ * Renders a scrollable list of Spotify tracks and allows selection of a track.
  *
- * @param {Array} tracks - The list of tracks to display.
- * @param {Function} onSelectTrack - Callback function triggered when a track is selected.
- * @returns {JSX.Element} A list of tracks.
+ * @param {Array} tracks - List of tracks to display.
+ * @param {Function} onSelectTrack - Callback triggered when a track is selected.
+ * @returns {JSX.Element} A rendered list of tracks or a message if no tracks are found.
  */
 const SpotifyTrackList = ({ tracks, onSelectTrack }) => {
-	if (!tracks || tracks.length === 0) {
+	if (!tracks || tracks.length == 0) {
 		return <p>No tracks found.</p>;
 	}
 

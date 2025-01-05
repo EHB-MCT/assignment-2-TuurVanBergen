@@ -1,22 +1,23 @@
-import "../styles/components/formField.css";
+import "../styles/components/form-field.css";
 
 /* eslint-disable react/prop-types */
 /**
- * FormField Component - Renders a single input field with label and error handling.
+ * FormField Component
  *
- * @param {Object} fieldConfig - Configuration object for the input field.
+ * Renders a single form input field with a label and error message.
+ *
+ * @param {Object} fieldConfig - Configuration for the input field.
  * @param {string} fieldConfig.labelText - Label text for the input field.
  * @param {string} fieldConfig.inputId - Unique ID for the input element.
  * @param {string} fieldConfig.fieldName - Name attribute for the input element.
- * @param {string} fieldConfig.inputType - Type attribute for the input element (e.g., "text", "number").
+ * @param {string} fieldConfig.inputType - Type of the input (e.g., "text", "number").
  * @param {string} fieldConfig.inputPlaceholder - Placeholder text for the input element.
- * @param {Object} rest - Any additional properties for the input field.
+ * @param {Object} rest - Additional properties for the input element.
+ * @param {string} value - Current value of the input.
+ * @param {string} error - Error message for the input field.
+ * @param {Function} onChange - Callback for handling input changes.
  *
- * @param {string} value - Current value of the input field.
- * @param {string} error - Error message to display for the input field.
- * @param {function} onChange - Function to handle changes in the input field.
- *
- * @returns {JSX.Element} - A single form field with label, input, and error message.
+ * @returns {JSX.Element} The rendered form field.
  */
 const FormField = ({ fieldConfig, value, error, onChange }) => {
 	const {

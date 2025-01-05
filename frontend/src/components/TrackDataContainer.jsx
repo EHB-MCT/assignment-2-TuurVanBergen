@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import { fetchAllTracks } from "../services/trackService";
+import { trackService } from "../services/trackService.js";
 
 /* eslint-disable react/prop-types */
 /**
  * TrackDataContainer Component
  *
- * This component fetches track data and passes it to child components for visualization.
- * It ensures data is only fetched when the component is mounted (e.g., when navigating to the visualization page).
+ * Fetches track data and provides it to child components via a render function.
+ * Handles loading and error states during data fetching.
  *
- * @returns {JSX.Element} A container for fetching and managing track data.
+ * @param {Function} children - A render function that receives the fetched tracks.
+ * @returns {JSX.Element} Renders loading, error, or track data state.
  */
 const TrackDataContainer = ({ children }) => {
 	const [tracks, setTracks] = useState([]);
@@ -16,10 +17,11 @@ const TrackDataContainer = ({ children }) => {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
+		// Fetches track data
 		const fetchData = async () => {
 			try {
-				const data = await fetchAllTracks();
-				setTracks(data);
+				const fetchedTracks = await trackService.fetchAllTracks();
+				setTracks(fetchedTracks);
 			} catch (err) {
 				setError(err.message);
 			} finally {
@@ -27,7 +29,7 @@ const TrackDataContainer = ({ children }) => {
 			}
 		};
 
-		fetchData(); // Fetch data when the component mounts
+		fetchData();
 	}, []);
 
 	// Pass loading, error, and data state to children

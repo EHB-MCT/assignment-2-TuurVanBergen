@@ -1,21 +1,21 @@
 import { useState } from "react";
-import FormField from "./FormField";
-import SpotifySearchInput from "./SpotifySearchInput";
-import { formFieldsConfig } from "../utils/formFieldsConfig";
-import { validateMusicForm } from "../utils/validation";
-import "../styles/components/musicForm.css";
+import FormField from "./FormField.jsx";
+import SpotifySearchInput from "./SpotifySearchInput.jsx";
+import { FORM_FIELDS_CONFIG } from "../utils/formFieldsConfig.js";
+import { validateMusicForm } from "../utils/validation.js";
+import "../styles/components/music-form.css";
 
 /**
  * MusicForm Component
  *
- * This component renders a form for adding music tracks.
- * It integrates Spotify search functionality to autofill track details.
+ * Renders a form for adding music tracks. The form includes manual input fields and a
+ * Spotify search input to autofill track details. Validates input and submits data to the server.
  *
- * @component
+ * @returns {JSX.Element} The rendered MusicForm component.
  */
 const MusicForm = () => {
 	// Initial state for the form
-	const initialFormState = formFieldsConfig.reduce((acc, field) => {
+	const initialFormState = FORM_FIELDS_CONFIG.reduce((acc, field) => {
 		acc[field.fieldName] = "";
 		return acc;
 	}, {});
@@ -25,10 +25,9 @@ const MusicForm = () => {
 	const [error, setError] = useState(null);
 
 	/**
-	 * Handle input changes for manual fields.
-	 * Updates the corresponding field in the form state.
+	 * Updates the state when a manual input field changes.
 	 *
-	 * @param {Object} event - The input change event.
+	 * @param {Object} event - Input change event.
 	 */
 	const handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -39,10 +38,9 @@ const MusicForm = () => {
 	};
 
 	/**
-	 * Handle track selection from Spotify search results.
-	 * Autofills the form with the selected track's details.
+	 * Autofills the form with details of a selected Spotify track.
 	 *
-	 * @param {Object} track - The track object selected from Spotify.
+	 * @param {Object} track - Selected track object.
 	 */
 	const handleTrackSelect = (track) => {
 		setFormData({
@@ -56,10 +54,9 @@ const MusicForm = () => {
 	};
 
 	/**
-	 * Handle form submission.
-	 * Validates form data and sends a POST request to add the track to the database.
+	 * Validates form data and submits it to the server.
 	 *
-	 * @param {Object} event - The form submission event.
+	 * @param {Object} event - Form submission event.
 	 */
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -70,6 +67,7 @@ const MusicForm = () => {
 			return;
 		}
 
+		// Submit form data
 		try {
 			const response = await fetch(import.meta.env.VITE_BASE_URL, {
 				method: "POST",
@@ -86,7 +84,8 @@ const MusicForm = () => {
 
 			const result = await response.json();
 			console.log("Track added successfully:", result);
-			setFormData(initialFormState); // Reset form after successful submission
+			// Reset form after successful submission
+			setFormData(initialFormState);
 			setErrors({});
 		} catch (err) {
 			console.error("Error submitting form:", err.message);
@@ -102,12 +101,13 @@ const MusicForm = () => {
 			<SpotifySearchInput onTrackSelect={handleTrackSelect} />
 
 			{/* Manual Fields */}
-			{formFieldsConfig.map((fieldConfig) => (
+			{FORM_FIELDS_CONFIG.map((fieldConfig) => (
 				<FormField
 					key={fieldConfig.fieldName}
 					fieldConfig={fieldConfig}
 					value={formData[fieldConfig.fieldName]}
-					error={errors[fieldConfig.fieldName]} // Display validation errors
+					// Display validation errors
+					error={errors[fieldConfig.fieldName]}
 					onChange={handleInputChange}
 				/>
 			))}
