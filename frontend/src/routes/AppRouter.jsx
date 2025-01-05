@@ -2,7 +2,17 @@
  * AppRouter Component
  *
  * This component defines the routing structure of the application using `react-router-dom`.
- * It includes navigation, footer, and routes for the Home, About, Visualization, and NotFound pages.
+ * It handles navigation, renders pages based on the current route, and displays the
+ * `NotFoundPage` for undefined routes.
+ *
+ * Included components:
+ * - `Navigation`: The top navigation bar.
+ * - `Footer`: The footer displayed on all pages.
+ * - Routes for the following pages:
+ *   - `HomePage` (`/`)
+ *   - `AboutPage` (`/about`)
+ *   - `VisualizationsPage` (`/visualization`)
+ *   - `NotFoundPage` (for undefined routes).
  *
  * @returns {JSX.Element} The rendered AppRouter component.
  */
@@ -19,10 +29,9 @@ import VisualizationsPage from "../pages/VisualizationsPage.jsx";
  *
  * Handles:
  * - Navigation across the application.
- * - Rendering the correct page based on the route.
- * - Showing the `NotFoundPage` for undefined routes.
+ * - Rendering the correct page based on the current route.
+ * - Displaying the `NotFoundPage` for undefined routes.
  *
- * @component
  * @example
  * return (
  *   <AppRouter />
