@@ -1,30 +1,44 @@
-/* visualizations-page.css */
-
-/* Container styling for the entire page */
+/**
+ * Visualizations Page styles
+ * 
+ * The `.visualizations-page` class is the main container for the visualizations page.
+ * It uses flexbox to center the content horizontally and align it vertically at the top.
+ * Provides padding and a light background for improved readability.
+ */
 .visualizations-page {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
 	padding: 20px;
-	background-color: #f9f9f9; /* Light background for better readability */
-	color: #333; /* Dark text for readability */
+	background-color: #f9f9f9;
+	color: #333;
 	min-height: 100vh;
 }
 
-/* Title styling */
+/**
+ * Visualizations Page Title styles
+ * 
+ * The `h1` inside the `.visualizations-page` container styles the main title of the page.
+ * It uses a larger font size and distinct color to draw attention.
+ */
 .visualizations-page h1 {
 	font-size: 2.5rem;
 	margin-bottom: 20px;
-	color: #2c3e50; /* A dark blue for the title */
+	color: #2c3e50;
 }
 
-/* Description styling */
+/**
+ * Visualizations Description styles
+ * 
+ * The `.visualizations-description` class styles the descriptive text on the page.
+ * It ensures the text is readable, centered, and visually distinct from the title.
+ */
 .visualizations-description {
 	font-size: 1.2rem;
 	line-height: 1.6;
 	text-align: center;
 	max-width: 800px;
 	margin-bottom: 40px;
-	color: #555; /* Slightly lighter than the title for distinction */
+	color: #555;
 }
