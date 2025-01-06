@@ -1,0 +1,30 @@
+/* visualizations-page.css */
+
+/* Container styling for the entire page */
+.visualizations-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 20px;
+	background-color: #f9f9f9; /* Light background for better readability */
+	color: #333; /* Dark text for readability */
+	min-height: 100vh;
+}
+
+/* Title styling */
+.visualizations-page h1 {
+	font-size: 2.5rem;
+	margin-bottom: 20px;
+	color: #2c3e50; /* A dark blue for the title */
+}
+
+/* Description styling */
+.visualizations-description {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	text-align: center;
+	max-width: 800px;
+	margin-bottom: 40px;
+	color: #555; /* Slightly lighter than the title for distinction */
+}
