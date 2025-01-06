@@ -204,6 +204,13 @@ This project includes the following additional documentation:
 
 ---
 
+## **Live Links**
+
+De applicatie is live en toegankelijk via de volgende links:
+
+- **Frontend**: [https://assignment-2-tuurvanbergen-1.onrender.com/](https://assignment-2-tuurvanbergen-1.onrender.com/)
+- **Backend API**: [https://assignment-2-tuurvanbergen-2.onrender.com/](https://assignment-2-tuurvanbergen-2.onrender.com/)
+
 ## **Conclusion**
 
 VibeView bridges the gap between user data collection and meaningful visual insights, empowering users to explore how music shapes emotions and activities in daily life.
