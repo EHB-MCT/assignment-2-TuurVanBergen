@@ -1,5 +1,6 @@
 import "../styles/pages/home-page.css";
 import MusicForm from "../components/MusicForm.jsx";
+import React from "react";
 
 /**
  * HomePage Component

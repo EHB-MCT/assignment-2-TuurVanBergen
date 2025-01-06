@@ -1,4 +1,5 @@
 import "../styles/components/spotify-track-list.css";
+import React from "react";
 
 /* eslint-disable react/prop-types */
 /**

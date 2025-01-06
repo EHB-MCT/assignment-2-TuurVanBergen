@@ -1,4 +1,5 @@
 import "../styles/components/navigation.css";
+import React from "react";
 
 /**
  * Navigation Component

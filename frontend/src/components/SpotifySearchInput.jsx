@@ -2,6 +2,7 @@ import { useState } from "react";
 import SpotifyTrackList from "./SpotifyTracklist.jsx";
 import "../styles/components/spotify-search-input.css";
 import { useSpotifySearch } from "../hooks/useSpotifySearch.js";
+import React from "react";
 
 /* eslint-disable react/prop-types */
 /**

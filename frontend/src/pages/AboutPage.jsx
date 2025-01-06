@@ -1,4 +1,5 @@
 import "../styles/pages/about-page.css";
+import React from "react";
 
 /**
  * AboutPage Component

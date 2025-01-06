@@ -2,6 +2,7 @@ import "../styles/pages/visualizations-page.css";
 import MoodEnergyScatter from "../components/MoodEnergyScatter";
 import MoodActivityChart from "../components/MoodActivityChart.jsx";
 import TrackDataContainer from "../components/TrackDataContainer.jsx";
+import React from "react";
 
 /**
  * VisualizationsPage Component

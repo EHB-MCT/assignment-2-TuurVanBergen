@@ -1,6 +1,7 @@
 import { useRef, useEffect } from "react";
 import * as d3 from "d3";
 import { drawAxes, addTooltip, drawLegend } from "../utils/d3Helpers.js"; // Importeer drawLegend
+import React from "react";
 
 /* eslint-disable react/prop-types */
 /**

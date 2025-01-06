@@ -23,6 +23,7 @@ import NotFoundPage from "../pages/NotFoundPage.jsx";
 import Navigation from "../components/Navigation.jsx";
 import Footer from "../components/Footer.jsx";
 import VisualizationsPage from "../pages/VisualizationsPage.jsx";
+import React from "react";
 
 /**
  * AppRouter Functional Component

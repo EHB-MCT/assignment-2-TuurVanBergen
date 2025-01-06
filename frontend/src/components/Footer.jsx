@@ -1,4 +1,6 @@
 import "../styles/components/footer.css";
+import React from "react";
+
 /**
  * Footer Component
  *

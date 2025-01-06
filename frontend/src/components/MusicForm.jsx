@@ -4,6 +4,7 @@ import SpotifySearchInput from "./SpotifySearchInput.jsx";
 import { FORM_FIELDS_CONFIG } from "../utils/formFieldsConfig.js";
 import { validateMusicForm } from "../utils/validation.js";
 import "../styles/components/music-form.css";
+import React from "react";
 
 /**
  * MusicForm Component

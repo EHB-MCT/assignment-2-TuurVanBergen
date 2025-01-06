@@ -1,4 +1,5 @@
 import "../styles/pages/not-found-page.css";
+import React from "react";
 
 /**
  * NotFoundPage Component

@@ -1,5 +1,6 @@
 // Importing the router component that manages all application routes
 import AppRouter from "./routes/AppRouter";
+import React from "react";
 
 /**
  * Root component of the application.

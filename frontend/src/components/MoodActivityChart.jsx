@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import * as d3 from "d3";
 import { prepareMoodActivityData } from "../utils/dataTransform.js";
 import { drawAxes, drawLegend, addTooltip } from "../utils/d3Helpers.js";
+import React from "react";
 
 /* eslint-disable react/prop-types */
 /**
