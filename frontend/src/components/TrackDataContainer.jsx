@@ -21,6 +21,7 @@ const TrackDataContainer = ({ children }) => {
 		const fetchData = async () => {
 			try {
 				const fetchedTracks = await trackService.fetchAllTracks();
+				console.log("Fetched tracks:", fetchedTracks);
 				setTracks(fetchedTracks);
 			} catch (err) {
 				setError(err.message);
