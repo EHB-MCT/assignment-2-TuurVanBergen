@@ -1,70 +1,93 @@
 ### **Updated Dataflow**
 
-### **High-Level Overview:**
+#### **High-Level Overview**
 
 1. **Frontend:**
 
    - **Form Input:**
-     - The user fills out a form with details such as track title, artist, album, etc.
-     - Input is managed using React state (`useState`) and custom hooks (`useMusicForm`).
+     - Users fill out a form with details like track title, ...
+     - The form is managed using React state (`useState`) and a custom hook (`useMusicForm`) for validation and submission.
    - **Spotify Search Integration:**
-     - As the user types in the artist or track field, the Spotify API is queried for dynamic suggestions.
-     - The user can select a track from a dropdown, which autofills the form fields.
+     - As users type in the `trackTitle` or `artistName` fields, the Spotify API is queried for suggestions.
+     - A dropdown menu allows users to select a track, autofilling relevant form fields.
    - **Visualization:**
-     - Tracks are fetched from the backend and displayed using an interactive visualization.
+     - Tracks are fetched from the backend and displayed in two interactive visualizations:
+       - **MoodActivityChart**: Visualizes the relationship between activities and moods.
+       - **MoodEnergyScatter**: Displays energy levels and durations of tracks.
 
 2. **Backend:**
 
-   - **Spotify Proxy:**
-     - The backend acts as a proxy for the Spotify API via `/api/spotify/search` to secure API credentials.
    - **Data Storage:**
-     - Validated data is stored in MongoDB after a successful POST request.
+     - Tracks submitted via the form are validated and stored in a MongoDB database.
    - **Data Retrieval:**
-     - Tracks are fetched from MongoDB and served to the frontend via GET requests.
+     - Stored tracks are fetched and served to the frontend through RESTful API endpoints.
 
 3. **Output:**
-   - Fetched data is used for visualization or further processing on the frontend.
+   - The fetched data is displayed in the visualizations and can also be updated or removed via frontend actions.
 
 ---
 
-### **Updated Detailed Dataflow**
+#### **Detailed Dataflow**
 
-#### **1. Spotify Search Integration**
+##### **1. Spotify Search Integration**
 
 - **Description:**
 
-  - While typing in the `trackTitle` or `artistName` fields in the form, the Spotify API is queried through a backend proxy.
+  - Implements a seamless Spotify API search experience, allowing users to search for tracks by title or artist.
 
-- **Process:**
-  - The user enters text in the input field.
-  - The `SpotifySearchInput` component invokes the `useSpotifySearch` hook, which makes a request to the backend.
-  - The backend queries the Spotify API and returns filtered results.
-  - Search results are displayed in a dropdown menu.
-  - When the user selects a track, the corresponding fields in the form are autofilled.
+- **Frontend Process:**
 
----
-
-#### **2. Frontend: Form Submission**
-
-- **Unchanged:**
-  - The form data is sent to the backend via a POST request. The backend validates the data and stores it in the database.
+  1. User types into the `trackTitle` or `artistName` fields in the form.
+  2. `SpotifySearchInput` invokes the `useSpotifySearch` hook to query the backend proxy.
+  3. The query processes and fetches results from the Spotify API.
+  4. Filtered results are returned to the frontend and displayed in a dropdown menu.
+  5. User selects a track, autofilling relevant form fields like `trackTitle`, `artistName`, and `duration`.
 
 ---
 
-#### **3. Backend: Spotify Proxy**
+##### **2. Frontend: Form Submission**
 
 - **Description:**
 
-  - A new `/api/spotify/search` endpoint acts as a proxy to fetch data from the Spotify API and pass it to the frontend.
+  - Enables users to submit track data for storage in the backend.
 
 - **Process:**
-  - The backend validates the incoming request and appends a valid Spotify access token.
-  - The Spotify API is queried for matching tracks based on the user's input.
-  - Results are structured and returned to the frontend for display in the dropdown.
+  1. User completes the form and clicks submit.
+  2. Data is validated on the frontend via `useMusicForm`.
+  3. Valid data is sent via a POST request to `/api/tracks`.
+  4. Backend validates the request and stores the track in MongoDB.
+  5. Success or error messages are displayed to the user.
 
 ---
 
-### **Updated ASCII Diagram**
+##### **3. Data Visualization**
+
+- **Description:**
+
+  - Provides users with dynamic visualizations of track data.
+
+- **Visualization Components:**
+
+  1. **MoodActivityChart**:
+     - Displays a stacked bar chart showing moods categorized by activity.
+     - Uses D3.js for rendering and includes tooltips and legends for enhanced usability.
+  2. **MoodEnergyScatter**:
+     - Visualizes energy levels and durations as a scatter plot.
+     - Incorporates interactive tooltips and legends.
+
+- **Frontend Process:**
+
+  1. Data is fetched from the backend via `useFetchTracks`.
+  2. Data is passed to visualization components.
+  3. D3.js renders the charts using helper functions like `drawAxes`, `addTooltip`, and `drawLegend`.
+
+- **Backend Process:**
+  1. GET request to `/api/tracks` retrieves all stored tracks.
+  2. Tracks are sent to the frontend in JSON format.
+
+---
+
+#### **Enhanced ASCII Diagram**
 
 ```plaintext
 User Input --> React State (formData) --> POST Request --> Backend Validation --> MongoDB Storage
@@ -78,9 +101,19 @@ GET Request <-- useFetchTracks Hook <-- Visualization Page <-- Rendered Track Da
 
 ---
 
-### **Future Extensions**
+#### **Error Handling**
 
-1. **Data Visualization:**
-   - Data visualizations of statistics.
+1. **Spotify Search:**
+
+   - Frontend: Displays errors if the Spotify API returns an invalid response or no results.
+   - Backend: Validates query parameters and handles expired tokens gracefully.
+
+2. **Form Validation:**
+
+   - Frontend: Highlights invalid fields with detailed error messages.
+   - Backend: Rejects invalid submissions with descriptive error responses.
+
+3. **Visualization:**
+   - Handles empty or incomplete datasets by displaying fallback messages or placeholder graphics.
 
 ---

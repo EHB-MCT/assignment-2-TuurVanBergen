@@ -61,7 +61,11 @@
   			"releaseYear": 2023,
   			"genre": "Pop",
   			"duration": 210,
-  			"rating": 4.5,
+  			"rating": 5,
+  			"mood": "Happy",
+  			"activity": "Studying",
+  			"listeningContext": "At home",
+  			"energyLevel": 4,
   			"createdAt": "2023-07-01T10:10:10.000Z",
   			"updatedAt": "2023-07-01T10:10:10.000Z"
   		}
@@ -81,20 +85,25 @@
 
 - **Headers**:
 
-  - **`Content-Type`**: `application/json`
+- **`Content-Type`**: `application/json`
 
 - **Body**:
-  ```json
-  {
-  	"trackTitle": "Track Title",
-  	"artistName": "Artist Name",
-  	"albumName": "Album Name",
-  	"releaseYear": 2023,
-  	"genre": "Pop",
-  	"duration": 210,
-  	"rating": 4
-  }
-  ```
+
+```json
+{
+	"trackTitle": "Track Title",
+	"artistName": "Artist Name",
+	"albumName": "Album Name",
+	"releaseYear": 2023,
+	"genre": "Pop",
+	"duration": 210,
+	"rating": 4,
+	"mood": "Happy",
+	"activity": "Studying",
+	"listeningContext": "At home",
+	"energyLevel": 4
+}
+```
 
 ##### **Response**
 
@@ -113,6 +122,10 @@
   		"genre": "Pop",
   		"duration": 210,
   		"rating": 4,
+  		"mood": "Happy",
+  		"activity": "Studying",
+  		"listeningContext": "At home",
+  		"energyLevel": 4,
   		"createdAt": "2023-07-01T10:10:10.000Z",
   		"updatedAt": "2023-07-01T10:10:10.000Z"
   	}
@@ -192,7 +205,6 @@ The API currently supports the following:
 ### **Notes for Future Enhancements**
 
 - Add support for detailed Spotify track metadata retrieval (e.g., genres, lyrics).
-- Implement advanced filtering options for the `/tracks` endpoint.
 - Add functionality for track updates (`PUT`) and deletions (`DELETE`).
 
 ---

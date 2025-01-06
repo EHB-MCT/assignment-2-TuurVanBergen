@@ -1,6 +1,6 @@
 ## **Progress Log**
 
-## Project Initialization
+### **Project Initialization**
 
 **Project Name:** VibeView  
 **Date Initialized:** January 2, 2025  
@@ -9,29 +9,24 @@
 
 ---
 
-## Folder Structure
+### **Folder Structure**
 
-### Frontend
+#### **Frontend**
 
 - **`src/`:**  
   Contains the React application source code. Includes directories for:
 
-  - **`components/`:** Reusable UI components.
-  - **`pages/`:** Page-specific components (e.g., Home, About, Visualization).
+  - **`components/`:** Reusable UI components (e.g., `MusicForm`, `FormField`).
+  - **`pages/`:** Page-specific components (e.g., `HomePage`, `VisualizationsPage`).
   - **`styles/`:** CSS/SCSS files for global and component-level styling.
   - **`routes/`:** Manages application routing logic.
   - **`hooks/`:** Custom React hooks for managing state and logic.
-  - **`utils/`:** Shared utilities for validation, formatting, etc.
+  - **`utils/`:** Shared utilities for validation, formatting, and data transformations.
 
 - **`public/`:**  
   Static assets for the frontend (e.g., images, favicon).
 
-- **`tests/`:**  
-  Testing scripts for validating frontend functionality.
-
----
-
-### Backend
+#### **Backend**
 
 - **`config/`:**  
   Configuration files (e.g., environment variables, database connections).
@@ -40,99 +35,128 @@
   Backend application logic, structured into:
 
   - **`controllers/`:** Handles HTTP requests and responses.
-  - **`routes/`:** API route definitions (e.g., `/api/data`).
+  - **`routes/`:** API route definitions (e.g., `/api/tracks`, `/api/spotify`).
   - **`models/`:** Database schemas and models for MongoDB.
   - **`services/`:** Encapsulates business logic and data handling.
   - **`utils/`:** Reusable utility functions (e.g., validation, error handling).
 
-- **`tests/`:**  
-  Backend unit and integration tests.
-
 ---
 
-## Progress Updates
+### **Progress Updates**
 
-### **January 2, 2025**
+#### **January 2, 2025**
 
-#### **Tasks Completed:**
+**Tasks Completed:**
 
 - **Project Initialization:**
 
-  - Defined separate folder structures for frontend and backend to ensure modularity.
-  - Initialized React frontend using `vite` for faster development.
-  - Configured ESLint and Prettier for code linting and formatting.
-  - Created backend structure and aligned it with best practices.
+  - Created separate folder structures for frontend and backend to ensure modularity.
+  - Initialized React frontend using Vite for faster development.
+  - Configured ESLint and Prettier for consistent code formatting.
+  - Created a backend structure aligned with MVC principles.
 
 - **Frontend Setup:**
 
-  - Implemented a basic layout for the React application with routing (`react-router-dom`).
-  - Created placeholders for `HomePage`, `AboutPage`, `VisualizationsPage`, and `NotFoundPage`.
+  - Implemented routing with `react-router-dom` for navigation between pages.
+  - Created placeholder pages (`HomePage`, `AboutPage`, `VisualizationsPage`, `NotFoundPage`).
 
 - **Backend Setup:**
-  - Defined folder hierarchy for `controllers`, `routes`, `models`, `services`, and `utils`.
+  - Defined folder hierarchy for `controllers`, `routes`, `models`, and `utils`.
+  - Connected MongoDB using `mongoose`.
 
 ---
 
-### **January 3, 2025**
+#### **January 3, 2025**
 
-#### **Tasks Completed:**
+**Tasks Completed:**
 
 ##### **Frontend:**
 
-- Developed the `MusicForm` component to collect music-related data, including fields for `trackTitle`, `artistName`, `albumName`, `releaseYear`, `genre`, `duration`, and `rating`.
-- Utilized a custom hook `useMusicForm` to manage form state, validation, and submission logic.
-- Created a `FormField` component for rendering reusable input fields with label, error handling, and dynamic styles.
-- Centralized form field configuration in `formFieldsConfig` for maintainability and scalability.
-- Added basic form validation logic using the `validateMusicForm` utility.
-- Styled the `MusicForm` and `FormField` components using BEM methodology.
+- Developed the `MusicForm` component for data collection:
+
+  - Added fields for track details such as `title`, `artist`, `album`, `year`, `genre`, `duration`, and `rating`.
+  - Used `useMusicForm` hook to manage form state, validation, and submission logic.
+  - Created a reusable `FormField` component.
+  - Centralized field configurations in `formFieldsConfig` for easier updates.
+
+- Added basic validation using the `validateMusicForm` utility:
+  - Validated required fields, value ranges, and input formats.
 
 ##### **Backend:**
 
-- Created the `TrackSchema` in `models/track.js`:
-  - Included fields for `title`, `artist`, `album`, `year`, `genre`, `duration`, and `rating`.
-  - Added validation logic (e.g., `year` must be between 1500 and the current year, `rating` must be between 1-5).
-  - Used `timestamps` to automatically track creation and update times.
-- Created `routes/api/trackRoutes.js` with the following endpoints:
+- Created `TrackSchema` in `models/track.js`:
+
+  - Defined validation for fields (e.g., `year` between 1500 and current year, `rating` between 1 and 5).
+  - Automatically tracked creation and update timestamps.
+
+- Implemented API routes:
   - `GET /api/tracks`: Fetch all tracks.
   - `POST /api/tracks`: Add a new track to the database.
 
 ---
 
-### **January 4, 2025**
+#### **January 4, 2025**
 
-#### **Tasks Completed:**
+**Tasks Completed:**
 
 ##### **Spotify Integration:**
 
-- Integrated Spotify API to allow dynamic track suggestions based on user input.
-  - **SpotifySearchInput Component:**
-    - Handles user input and fetches results.
-    - Displays a dropdown list of matching tracks.
-    - Autofills the form fields upon selection.
-- Updated the `MusicForm` component:
-  - Added the Spotify search functionality as a separate component for modularity.
-  - Integrated `formFieldsConfig` and `validateMusicForm` for improved field management and validation.
+- Added `SpotifySearchInput` component for dynamic track suggestions:
+  - Integrated Spotify API via a backend proxy.
+  - Displayed search results in a dropdown.
+  - Autofilled form fields upon track selection.
+
+##### **Backend Enhancements:**
+
+- Created `/api/spotify/search` endpoint:
+  - Acts as a proxy for Spotify API requests.
+  - Secures API credentials by handling authentication server-side.
 
 ##### **Frontend Integration:**
 
-- Established communication between the frontend and backend:
-  - **GET Request**: Fetched all tracks from the backend and displayed them on the `VisualizationsPage`.
-  - **POST Request**: Submitted user-inputted track data from the form to the backend.
-- Created `TrackDataContainer`:
-  - A container component to fetch, manage, and pass track data to child components for rendering.
-  - Used `useFetchTracks` hook to manage fetching and state handling.
-
-##### **Testing:**
-
-- Verified Spotify integration and search functionality using mocked API responses.
-- Validated database operations via Postman for `GET` and `POST` routes.
+- Connected frontend to backend:
+  - Used `GET` requests to fetch all tracks and display them on the `VisualizationsPage`.
+  - Used `POST` requests to submit form data for storage in MongoDB.
 
 ---
 
-### **Notes:**
+#### **January 5, 2025**
 
-- **Database Name:** `vibeview`.
-- **Environment Variables:** Server port, database URI, and Spotify credentials are securely stored in the `.env` file.
-- Future updates will focus on implementing interactive data visualizations.
+**Tasks Completed:**
+
+##### **Data Visualization:**
+
+- Created interactive visualizations:
+
+  - `MoodActivityChart`: Stacked bar chart showing mood distribution across activities.
+  - `MoodEnergyScatter`: Scatter plot visualizing energy levels vs. duration.
+
+- Implemented reusable D3 helpers:
+  - `drawAxes`: Draws x and y axes.
+  - `addTooltip`: Adds interactive tooltips.
+  - `drawLegend`: Creates dynamic legends.
+
+##### **Refactoring:**
+
+- Modularized reusable logic into `d3Helpers.js`.
+- Added comprehensive inline comments and JSDoc-style documentation across all modules.
+
+##### **Validation Enhancements:**
+
+- Improved form validation:
+  - Ensured valid numeric ranges for fields like `rating` and `year`.
+  - Added real-time validation feedback.
+
+---
+
+#### **January 6, 2025**
+
+**Tasks Completed:**
+
+##### **Final Updates:**
+
+- Finalized documentation:
+  - Updated README with setup instructions, naming conventions, and contribution guidelines.
+  - Added API documentation for all endpoints, including Spotify integration and data visualization.
 
 ---

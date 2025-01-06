@@ -125,14 +125,43 @@ The following changes were part of the old project setup and are now archived:
   - Enhanced `validateMusicForm` to include year range validation.
   - Updated `formFieldsConfig` to align with validation rules.
 
+---
+
+### **[0.5.0]** - 2025-01-06
+
+### Added
+
+- **Data Visualization:**
+
+  - Created `MoodActivityChart` and `MoodEnergyScatter` components using D3.js.
+  - Implemented tooltip interactivity with `addTooltip` helper for consistent user experience.
+  - Added dynamic legends using the `drawLegend` helper for better data clarity.
+  - Included reusable helper functions in `d3Helpers.js` for drawing axes, tooltips, and legends.
+
+- **Frontend Refactor:**
+
+  - Enhanced code modularity by refactoring reusable logic into helpers and utility files.
+  - Added comprehensive inline comments and JSDoc-style documentation for all modules.
+
+- **Database Enhancements:**
+
+  - Added new fields to the database schema for storing personal fields (e.g., user-specific metadata or preferences).
+  - Updated the backend model to validate and handle these new fields.
+
+- **API Enhancements:**
+
+  - Updated API endpoints to handle the newly added fields:
+    - `POST /api/tracks` and `PUT /api/tracks/:id` now accept and validate the additional fields.
+    - `GET /api/tracks` and `GET /api/tracks/:id` now include the new fields in the response.
+  - Improved error handling for invalid or missing data in these fields.
+
 - **Documentation:**
 
-  - Updated API documentation with Spotify integration details.
-  - Added new fields and error handling notes in the validation documentation.
+  - Updated API documentation to include details about the new personal fields in the request and response schemas.
+  - Added detailed explanations for the changes in backend models and endpoints.
 
 ---
 
 ### **Notes**
 
-- For detailed setup instructions, refer to the `README.md`.
 - This changelog adheres to the Semantic Versioning conventions for consistent version management.
