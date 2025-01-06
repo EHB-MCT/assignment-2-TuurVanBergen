@@ -1,28 +1,23 @@
 /**
- * About Page Container styles
+ * Homepage styles
  * 
- * Centers content vertically and horizontally using Flexbox.
- * Applies a light background (#f8f9fa) and dark text (#333) for readability.
+ * The `.homepage` class is the container for the homepage layout.
+ * It centers the content and adds consistent padding around the content.
+ * 
  */
-.about-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+.homepage {
+	padding: 2rem;
 	text-align: center;
-	height: 100vh;
-	background-color: #f8f9fa;
-	color: #333;
 }
 
 /**
- * About Page Paragraph styles
+ * Homepage Title styles
  * 
- * Ensures readable text with a max width, larger font size, and proper line spacing.
+ * The `.homepage__title` class is used to style the main title on the homepage.
+ * It defines the font size and spacing below the title.
+ * 
  */
-.about-container p {
-	font-size: 1.2rem;
-	line-height: 1.6;
-	max-width: 600px;
-	margin: 0 auto;
+.homepage__title {
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
 }

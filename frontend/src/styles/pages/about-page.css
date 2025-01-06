@@ -1,0 +1,28 @@
+/**
+ * About Page Container styles
+ * 
+ * Centers content vertically and horizontally using Flexbox.
+ * Applies a light background (#f8f9fa) and dark text (#333) for readability.
+ */
+.about-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 100vh;
+	background-color: #f8f9fa;
+	color: #333;
+}
+
+/**
+ * About Page Paragraph styles
+ * 
+ * Ensures readable text with a max width, larger font size, and proper line spacing.
+ */
+.about-container p {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	max-width: 600px;
+	margin: 0 auto;
+}
